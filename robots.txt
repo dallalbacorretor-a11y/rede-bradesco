@@ -1,0 +1,3 @@
+# material comercial: acessivel por link, fora dos buscadores
+User-agent: *
+Disallow: /
