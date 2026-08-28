@@ -14,8 +14,9 @@
   --rule:#dde3ec; --rule-forte:#c6d0de; --muted:#5a6a80; --fraco:#8695a9;
   --topo:#101a29; --sobre-topo:#eef2f8; --topo-fraco:#93a2b8; --ouro-claro:#cfa94a;
   --ouro:#9a7420; --ouro-fraco:#f6efdd;
-  --p0:#a3123c; --p1:#b0552a; --p2:#7c6318; --p3:#1d5089; --p4:#0e6b64;
-  --p0-bg:#fbecf0; --p1-bg:#fbefe8; --p2-bg:#f8f3e2; --p3-bg:#eaf0f9; --p4-bg:#e5f2f1;
+  /* uma cor por produto da tela: Efetivo IV, Efetivo Plus, Top Nacional */
+  --p0:#a3123c; --p1:#b0552a; --p2:#1d5089; --p3:#1d5089; --p4:#0e6b64;
+  --p0-bg:#fbecf0; --p1-bg:#fbefe8; --p2-bg:#eaf0f9; --p3-bg:#eaf0f9; --p4-bg:#e5f2f1;
   --alerta:#8a5a12; --alerta-bg:#fbf1de; --alerta-rule:#ecd9b2;
   --nota:#274a77; --nota-bg:#eaf0f9; --nota-rule:#cfdcee;
   --sombra:0 1px 2px rgba(16,26,41,.05), 0 6px 18px rgba(16,26,41,.05);
@@ -30,8 +31,8 @@
     --rule:#283444; --rule-forte:#3a4859; --muted:#9aa9bf; --fraco:#78889e;
     --topo:#080e17; --sobre-topo:#e7edf6; --topo-fraco:#8496ad; --ouro-claro:#d3a742;
     --ouro:#d3a742; --ouro-fraco:#2b2415;
-    --p0:#f08aa6; --p1:#e5a071; --p2:#d8bd63; --p3:#8fb6e8; --p4:#6cc9c0;
-    --p0-bg:#2a1520; --p1-bg:#2a1c14; --p2-bg:#26210f; --p3-bg:#14202f; --p4-bg:#0f2523;
+    --p0:#f08aa6; --p1:#e5a071; --p2:#8fb6e8; --p3:#8fb6e8; --p4:#6cc9c0;
+    --p0-bg:#2a1520; --p1-bg:#2a1c14; --p2-bg:#14202f; --p3-bg:#14202f; --p4-bg:#0f2523;
     --alerta:#e0b671; --alerta-bg:#2a2314; --alerta-rule:#443619;
     --nota:#9dbde6; --nota-bg:#14202f; --nota-rule:#2a3b52;
     --sombra:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.28);
@@ -43,8 +44,8 @@
   --rule:#283444; --rule-forte:#3a4859; --muted:#9aa9bf; --fraco:#78889e;
   --topo:#080e17; --sobre-topo:#e7edf6; --topo-fraco:#8496ad; --ouro-claro:#d3a742;
   --ouro:#d3a742; --ouro-fraco:#2b2415;
-  --p0:#f08aa6; --p1:#e5a071; --p2:#d8bd63; --p3:#8fb6e8; --p4:#6cc9c0;
-  --p0-bg:#2a1520; --p1-bg:#2a1c14; --p2-bg:#26210f; --p3-bg:#14202f; --p4-bg:#0f2523;
+  --p0:#f08aa6; --p1:#e5a071; --p2:#8fb6e8; --p3:#8fb6e8; --p4:#6cc9c0;
+  --p0-bg:#2a1520; --p1-bg:#2a1c14; --p2-bg:#14202f; --p3-bg:#14202f; --p4-bg:#0f2523;
   --alerta:#e0b671; --alerta-bg:#2a2314; --alerta-rule:#443619;
   --nota:#9dbde6; --nota-bg:#14202f; --nota-rule:#2a3b52;
   --sombra:0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.28);
@@ -286,50 +287,85 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 }
 /* ---------------------------------------------------------------- documento */
 #doc{display:none}
-@page{size:A4; margin:14mm 12mm 16mm}
+@page{size:A4 landscape; margin:12mm 12mm 14mm}
 @media print{
   .topo,.barra,.avancado,.resumo,.selos-uf,.comoler,main,#maisWrap,footer{display:none!important}
-  body{background:#fff; color:#101a29; font-size:9.5pt}
+  body{background:#fff; color:#101a29; font-size:9pt}
   #doc{display:block}
   #doc *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
 }
-#doc .capa{border-bottom:2.5pt solid #9a7420; padding-bottom:9pt; margin-bottom:14pt}
-#doc .marca-doc{font:700 8pt/1 var(--sans); letter-spacing:.24em; text-transform:uppercase; color:#9a7420}
-#doc .marca-doc b{font-weight:400; color:#5a6a80}
-#doc h1{font:500 20pt/1.15 var(--serif); color:#101a29; margin:5pt 0 2pt}
-#doc .praca{font:600 12pt/1.3 var(--sans); color:#101a29}
-#doc .bases{font:400 8pt/1.6 var(--sans); color:#5a6a80; margin-top:6pt}
-#doc .bases b{color:#101a29; font-weight:600}
-#doc .placar{display:flex; gap:16pt; margin-top:8pt; font:400 8pt/1.3 var(--sans); color:#5a6a80}
-#doc .placar b{display:block; font:500 13pt/1 var(--mono); color:#101a29}
 
+/* --- capa --- */
+#doc .capa{
+  background:#0f1a29; color:#fff; height:178mm; break-after:page;
+  padding:20mm 18mm; display:flex; flex-direction:column; position:relative;
+}
+#doc .capa::after{
+  content:""; position:absolute; left:0; right:0; bottom:0; height:6mm;
+  background:linear-gradient(90deg,#a3123c 0 33.3%,#b0552a 33.3% 66.6%,#1d5089 66.6% 100%);
+}
+#doc .capa .selo{font:700 9pt/1 var(--sans); letter-spacing:.34em; color:#c9a227}
+#doc .capa .fio{width:26mm; height:1.2pt; background:#c9a227; margin:5mm 0 9mm}
+#doc .capa h1{font:400 34pt/1.06 var(--serif); color:#fff; letter-spacing:-.01em}
+#doc .capa h1 em{display:block; font-style:italic; color:#c9a227}
+#doc .capa .praca{margin-top:11mm; font:600 17pt/1.1 var(--sans); color:#fff; letter-spacing:.01em}
+#doc .capa .praca small{display:block; font:400 10pt/1.6 var(--sans); color:#93a2b8; margin-top:2mm}
+#doc .capa .placar{display:flex; gap:14mm; margin-top:auto; padding-bottom:4mm}
+#doc .capa .placar div{border-top:.8pt solid rgba(255,255,255,.22); padding-top:3mm; min-width:26mm}
+#doc .capa .placar b{display:block; font:400 21pt/1 var(--serif); color:#fff}
+#doc .capa .placar span{font:600 7.5pt/1.5 var(--sans); letter-spacing:.12em;
+  text-transform:uppercase; color:#93a2b8}
+#doc .capa .rodape{font:400 7.5pt/1.7 var(--sans); color:#7f8ea5; padding-bottom:5mm}
+#doc .capa .rodape b{color:#c9a227; font-weight:600}
+
+/* --- pagina de leitura --- */
+#doc .leitura{break-after:page; padding-top:2mm}
+#doc .leitura h2{font:400 17pt/1.2 var(--serif); color:#0f1a29; margin-bottom:6mm}
+#doc .cartoes{display:flex; gap:6mm}
+#doc .cartao{flex:1; border:.6pt solid #dde3ec; border-top:2pt solid #c9a227;
+  padding:5mm 5mm 4mm; background:#fbfcfd}
+#doc .cartao h3{font:600 8pt/1.2 var(--sans); letter-spacing:.1em; text-transform:uppercase;
+  color:#9a7420; margin-bottom:2.5mm}
+#doc .cartao p{margin:0; font:400 8.5pt/1.55 var(--sans); color:#3c4a5c}
+#doc .cartao p b{color:#0f1a29}
+#doc .selo-legenda{display:inline-block; padding:.6mm 2mm; border-radius:2pt;
+  font:700 7.5pt/1.4 var(--sans); margin-right:1.5mm}
+#doc .aviso-capa{margin-top:7mm; border-left:2.4pt solid #c9a227; background:#faf6ea;
+  padding:4mm 5mm; font:400 8.5pt/1.6 var(--sans); color:#5b4a22}
+#doc .aviso-capa b{color:#0f1a29}
+
+/* --- blocos por categoria --- */
 #doc .bloco{break-inside:auto}
-#doc .bloco + .bloco{break-before:page; padding-top:2pt}
-#doc .bloco h2{font:500 13pt/1.2 var(--serif); color:#101a29; margin-bottom:2pt;
-  border-bottom:.75pt solid #c6d0de; padding-bottom:3pt;
-  display:flex; justify-content:space-between; align-items:baseline}
-#doc .bloco h2 span{font:400 8pt/1 var(--mono); color:#8695a9}
-#doc table{width:100%; border-collapse:collapse; margin-top:5pt}
+#doc .bloco + .bloco{break-before:page; padding-top:1mm}
+#doc .bloco h2{
+  font:400 15pt/1.2 var(--serif); color:#0f1a29; display:flex; align-items:baseline;
+  gap:4mm; border-bottom:1.4pt solid #c9a227; padding-bottom:2.5mm; margin-bottom:1mm;
+}
+#doc .bloco h2 span{font:600 8pt/1 var(--sans); letter-spacing:.12em; color:#8695a9;
+  text-transform:uppercase}
+#doc table{width:100%; border-collapse:collapse; margin-top:3mm}
 #doc thead{display:table-header-group}
-#doc thead th{font:600 6.8pt/1.2 var(--sans); letter-spacing:.05em; text-transform:uppercase;
-  color:#5a6a80; text-align:center; padding:3pt 2pt; border-bottom:.5pt solid #c6d0de}
+#doc thead th{font:700 7pt/1.25 var(--sans); letter-spacing:.08em; text-transform:uppercase;
+  color:#fff; background:#0f1a29; text-align:center; padding:2.6mm 1.5mm}
 #doc thead th.esq{text-align:left}
+#doc thead th.p0{background:#a3123c} #doc thead th.p1{background:#b0552a}
+#doc thead th.p2{background:#1d5089}
 #doc tbody tr{break-inside:avoid}
-#doc tbody td{padding:3.5pt 2pt; border-bottom:.4pt solid #eef1f6; vertical-align:top}
-#doc td.nome{font:600 8.5pt/1.3 var(--sans)}
-#doc td.nome small{display:block; font:400 7pt/1.45 var(--sans); color:#5a6a80; font-weight:400; margin-top:1pt}
-#doc td.nome small b{color:#101a29; font-weight:600}
-#doc td.nome code{font:400 6.6pt/1 var(--mono); color:#8695a9}
-#doc td.bairro{font:400 7.5pt/1.3 var(--sans); color:#5a6a80; width:78pt}
-#doc td.pl{text-align:center; width:40pt; font:600 8pt/1 var(--sans)}
-#doc td.pl.s0{color:#a3123c} #doc td.pl.s1{color:#b0552a} #doc td.pl.s2{color:#7c6318}
-#doc td.pl.s3{color:#1d5089} #doc td.pl.s4{color:#0e6b64}
-#doc td.pl.nao{color:#c6d0de}
-#doc .rodape-doc{position:fixed; bottom:0; left:0; right:0; padding-top:4pt;
-  border-top:.4pt solid #c6d0de; font:400 6.8pt/1.4 var(--sans); color:#8695a9;
+#doc tbody tr:nth-child(even) td{background:#f7f9fc}
+#doc tbody td{padding:2.4mm 1.5mm; border-bottom:.4pt solid #e6ebf2; vertical-align:top}
+#doc td.nome{font:600 9pt/1.3 var(--sans); color:#0f1a29}
+#doc td.nome small{display:block; font:400 7.5pt/1.5 var(--sans); color:#5a6a80;
+  font-weight:400; margin-top:.6mm}
+#doc td.nome small b{color:#0f1a29; font-weight:600}
+#doc td.bairro{font:400 8pt/1.35 var(--sans); color:#5a6a80; width:32mm}
+#doc td.pl{text-align:center; width:24mm; font:700 10pt/1 var(--sans)}
+#doc td.pl.s0{color:#a3123c} #doc td.pl.s1{color:#b0552a} #doc td.pl.s2{color:#1d5089}
+#doc td.pl.nao{color:#ccd4e0; font-weight:400}
+#doc td.pl i{display:block; font:600 6.5pt/1.4 var(--sans); font-style:normal; color:#8695a9}
+#doc .rodape-doc{position:fixed; bottom:0; left:0; right:0; padding-top:2mm;
+  border-top:.5pt solid #c9a227; font:400 7pt/1.4 var(--sans); color:#8695a9;
   display:flex; justify-content:space-between}
-#doc .rodape-doc b{color:#9a7420; font-weight:700; letter-spacing:.18em; text-transform:uppercase}
-#doc .aviso-doc{margin-top:10pt; font:400 7pt/1.5 var(--sans); color:#5a6a80}
+#doc .rodape-doc b{color:#9a7420; font-weight:700; letter-spacing:.16em; text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -924,42 +960,69 @@ function montaDocumento(){
   if(st.bai>=0) recorte.push('bairro ' + BAI[st.bai]);
   if(st.q.trim()) recorte.push('busca “' + st.q.trim() + '”');
 
-  const bases = ['<b>Consultas</b> buscador ' + esc(DADOS.ref)];
-  if(uf && HREF[uf]) bases.push('<b>Internação</b> lista de hospitais ' + esc(HREF[uf].ref));
-  if(uf && LREF[uf]) bases.push('<b>Exames</b> lista de laboratórios ' + esc(LREF[uf].ref));
-
   const porTipo = {0:[], 1:[], 2:[], 3:[]};
   for(const r of achados) porTipo[r.p[4]].push(r);
-
-  let h = '<div class="capa">' +
-    '<div class="marca-doc">Mazza <b>Broker</b></div>' +
-    '<h1>Estudo de rede referenciada — Bradesco Saúde</h1>' +
-    '<div class="praca">' + esc(onde) + '</div>' +
-    '<div class="bases">' + bases.join(' &nbsp;·&nbsp; ') +
-      (uf && (!HREF[uf] || !LREF[uf])
-        ? '<br>' + esc(uf) + ' ainda sem lista oficial de ' +
-          (!HREF[uf] && !LREF[uf] ? 'hospitais e de laboratórios'
-           : !HREF[uf] ? 'hospitais' : 'laboratórios') +
-          ' — só o que vem do buscador.'
-        : '') +
-      (recorte.length ? '<br>Recorte: ' + esc(recorte.join(' · ')) + '.' : '') +
-    '</div><div class="placar">';
-  h += '<div><b>' + achados.length.toLocaleString('pt-BR') + '</b>prestadores</div>';
+  const qtPlano = [];
   for(let i=0;i<NP;i++){
     let n = 0;
     for(const r of achados) if(r.mask & MASCARA[i]) n++;
-    h += '<div><b>' + n.toLocaleString('pt-BR') + '</b>' + esc(PLANOS[i]) + '</div>';
+    qtPlano.push(n);
   }
-  h += '</div></div>';
 
+  /* ---------------- capa ---------------- */
+  let h = '<section class="capa"><div class="selo">Mazza Broker</div><div class="fio"></div>' +
+    '<h1>Rede referenciada<em>Bradesco Saúde</em></h1>' +
+    '<div class="praca">' + esc(onde) +
+    (recorte.length ? '<small>' + esc(recorte.join(' · ')) + '</small>' : '') + '</div>' +
+    '<div class="placar">' +
+    '<div><b>' + achados.length.toLocaleString('pt-BR') + '</b><span>prestadores</span></div>';
+  const cats = [[1,'hospitais'], [0,'clínicas'], [3,'médicos'], [2,'laboratórios']];
+  for(const c of cats)
+    if(porTipo[c[0]].length)
+      h += '<div><b>' + porTipo[c[0]].length.toLocaleString('pt-BR') + '</b><span>' + c[1] + '</span></div>';
+  for(let i=0;i<NP;i++)
+    h += '<div><b>' + qtPlano[i].toLocaleString('pt-BR') + '</b><span>' + esc(PLANOS[i]) + '</span></div>';
+  h += '</div><div class="rodape">Documento gerado em ' + esc(DADOS.gerado) +
+       ' · <b>Mazza Broker</b> · Alan Vinicius Dall Alba · (41) 99547-6715 · ' +
+       'alan.vinicius@mazzabroker.com.br</div></section>';
+
+  /* ---------------- como ler ---------------- */
+  const fonteLinha = [];
+  fonteLinha.push('<b>Consultas e exames</b> — buscador oficial da Bradesco, base ' + esc(DADOS.ref));
+  if(uf && HREF[uf]) fonteLinha.push('<b>Internação</b> — lista oficial de hospitais de ' +
+    esc(uf) + ', ' + esc(HREF[uf].ref));
+  if(uf && LREF[uf]) fonteLinha.push('<b>Exames e diagnóstico</b> — lista oficial de laboratórios de ' +
+    esc(uf) + ', ' + esc(LREF[uf].ref));
+
+  h += '<section class="leitura"><h2>Como ler este documento</h2><div class="cartoes">' +
+    '<div class="cartao"><h3>Os três produtos</h3><p>' +
+      '<span class="selo-legenda" style="background:#fbecf0;color:#a3123c">Efetivo IV</span>' +
+      '<span class="selo-legenda" style="background:#fbefe8;color:#b0552a">Efetivo Plus</span>' +
+      '<span class="selo-legenda" style="background:#eaf0f9;color:#1d5089">Top Nacional</span><br>' +
+      'O <b>✓</b> na coluna do produto significa que aquele prestador atende quem tem esse plano. ' +
+      'Efetivo Plus e Top Nacional reúnem enfermaria e apartamento — quando só uma acomodação ' +
+      'atende, a coluna avisa.</p></div>' +
+    '<div class="cartao"><h3>Como a rede está organizada</h3><p>' +
+      'Cada bloco é um tipo de atendimento: <b>hospitais</b>, <b>clínicas e consultórios</b>, ' +
+      '<b>médicos</b> e <b>laboratórios e imagem</b>. Sob o nome do hospital vem o que ele cobre — ' +
+      'internação, pronto socorro, maternidade, ambulatório.</p></div>' +
+    '<div class="cartao"><h3>De onde vêm os dados</h3><p>' + fonteLinha.join('<br>') + '</p></div>' +
+    '</div>' +
+    '<div class="aviso-capa"><b>Antes de contratar.</b> A rede referenciada é definida e alterada ' +
+    'exclusivamente pela Bradesco Saúde, a qualquer tempo. Este documento reproduz as listas ' +
+    'oficiais na data indicada e serve para orientar a escolha — <b>confirme o prestador no portal ' +
+    'da operadora antes de fechar o contrato.</b></div></section>';
+
+  /* ---------------- blocos ---------------- */
   const ordem = [[1,'Hospitais'], [0,'Clínicas e consultórios'], [3,'Médicos'],
                  [2,'Laboratórios e imagem']];
   for(const par of ordem){
     const lista = porTipo[par[0]];
     if(!lista.length) continue;
-    h += '<section class="bloco"><h2>' + par[1] + '<span>' + lista.length + '</span></h2>' +
+    h += '<section class="bloco"><h2>' + par[1] + '<span>' + lista.length +
+         (lista.length === 1 ? ' prestador' : ' prestadores') + '</span></h2>' +
          '<table><thead><tr><th class="esq">Prestador</th><th class="esq">Bairro</th>';
-    for(let i=0;i<NP;i++) h += '<th>' + esc(PLANOS[i]) + '</th>';
+    for(let i=0;i<NP;i++) h += '<th class="p'+i+'">' + esc(PLANOS[i]) + '</th>';
     h += '</tr></thead><tbody>';
     for(const r of lista){
       const p = r.p, blocos = (p[6] && p[6][0]) || 0;
@@ -967,35 +1030,31 @@ function montaDocumento(){
       const sub = [];
       if(blocos){
         const g = new Set();
-        for(const bl of blocos) for(let b=0;b<PRODUTOS.length;b++) if(SERV[bl[b]]) g.add(SERV[bl[b]]);
+        for(const bl of blocos)
+          for(let b=0;b<PRODUTOS.length;b++) if(SERV[bl[b]]) g.add(SERV[bl[b]]);
         if(g.size) sub.push('<b>Internação:</b> ' +
           esc(Array.from(g).map(servicoLegivel).join(' | ')));
       }
       if(comEsp){
         const vis = [];
         for(let k=0;k<r.sub.length;k+=2) if(!FORA.has(r.sub[k])) vis.push(ESP[r.sub[k]]);
-        if(vis.length) sub.push(esc(vis.join(', ')));
+        if(vis.length) sub.push(esc(vis.join(' · ')));
       }
-      if(p[6] && p[6][2]===1) sub.push('Consta só nas listas oficiais — sem dados de consulta.');
-      else if(p[3] && p[3].length) sub.push('<code>' + esc(codigos(p[3])) + '</code>');
       if(sub.length) h += '<small>' + sub.join('<br>') + '</small>';
       h += '</td><td class="bairro">' + esc(BAI[p[2]] || '—') + '</td>';
       for(let i=0;i<NP;i++){
         const t = marca(r.mask, i);
         h += '<td class="pl ' + (t ? 's'+i : 'nao') + '">' +
-             (t ? (t==='sim' ? '&#10003;' : '✓ '+t) : '&ndash;') + '</td>';
+             (t ? '&#10003;' + (t!=='sim' ? '<i>'+esc(t)+'</i>' : '') : '&ndash;') + '</td>';
       }
       h += '</tr>';
     }
     h += '</tbody></table></section>';
   }
 
-  h += '<p class="aviso-doc">Documento de estudo interno. A rede é definida e alterada ' +
-       'exclusivamente pela operadora — confirme no portal da Bradesco Saúde antes de contratar. ' +
-       'A classificação em hospital, clínica e laboratório segue as listas oficiais onde elas ' +
-       'existem; fora delas é sugerida pelo nome e pelas especialidades.</p>';
-  h += '<div class="rodape-doc"><span><b>Mazza Broker</b> · Rede referenciada Bradesco Saúde · ' +
-       esc(onde) + '</span><span>Gerado em ' + esc(DADOS.gerado) + '</span></div>';
+  h += '<div class="rodape-doc"><span><b>Mazza Broker</b> &nbsp;·&nbsp; Rede referenciada ' +
+       'Bradesco Saúde &nbsp;·&nbsp; ' + esc(onde) + '</span>' +
+       '<span>Confirme no portal da operadora antes de contratar</span></div>';
   alvo.innerHTML = h;
 }
 
@@ -1082,15 +1141,22 @@ function copiar(){
 
 /* ---------------------------------------------------------------- início */
 (function(){
-  const fmt = reg => Object.keys(reg).sort().map(u => u + ' ' + reg[u].ref).join(' · ');
-  const h = ['<b>Consultas</b> · buscador ' + esc(DADOS.ref) + ' · Brasil'];
-  h.push(Object.keys(HREF).length
-    ? '<b>Internação</b> · lista de hospitais · ' + esc(fmt(HREF))
-    : '<b>Internação</b> · nenhuma UF carregada');
-  h.push(Object.keys(LREF).length
-    ? '<b>Exames</b> · lista de laboratórios · ' + esc(fmt(LREF))
-    : '<b>Exames</b> · nenhuma UF carregada');
-  $('fonteResumo').innerHTML = h.join('<br>');
+  /* no topo só o essencial: a lista estado a estado fica no rodapé */
+  const periodo = reg => {
+    const refs = [...new Set(Object.keys(reg).map(u => reg[u].ref))];
+    if(!refs.length) return '';
+    return refs.length === 1 ? refs[0] : refs[0] + ' a ' + refs[refs.length-1];
+  };
+  const linha = (rot, reg) => {
+    const n = Object.keys(reg).length;
+    return n ? '<b>'+rot+'</b> · ' + n + (n===1 ? ' estado · ' : ' estados · ') + esc(periodo(reg))
+             : '<b>'+rot+'</b> · nenhum estado carregado';
+  };
+  $('fonteResumo').innerHTML = [
+    '<b>Consultas</b> · Brasil · buscador ' + esc(DADOS.ref),
+    linha('Internação', HREF),
+    linha('Exames', LREF)
+  ].join('<br>');
 
   const det = ['<b>Fontes:</b> ' + esc(DADOS.fonte) + ' — buscador oficial Bradesco Saúde, aba ' +
                '“27 ufs”, base ' + esc(DADOS.ref) + '.'];
