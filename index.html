@@ -445,10 +445,10 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 #doc{display:none}
 @page{size:A4; margin:13mm 11mm 15mm}
 @media print{
-  .topo,.barra,.avancado,.resumo,.selos-uf,.comoler,main,#maisWrap,footer,
-  dialog{display:none!important}
+  /* no papel so existe o documento: tudo que e tela fica de fora */
+  body > *{display:none!important}
   body{background:#fff; color:#101a29; font-size:11pt}
-  #doc{display:block}
+  #doc{display:block!important}
   #doc *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
 }
 
@@ -475,6 +475,9 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 #doc .capa .placar span{font:600 7.5pt/1.5 var(--sans); letter-spacing:.12em;
   text-transform:uppercase; color:#93a2b8}
 #doc .capa .rodape{font:400 7.5pt/1.7 var(--sans); color:#7f8ea5; padding-bottom:5mm}
+/* a marca da operadora identifica de quem e a rede; a Mazza assina o estudo */
+#doc .capa .logo-op{position:absolute; top:24mm; right:16mm; height:13mm; width:auto;
+  background:#fff; padding:2.5mm 3.5mm; border-radius:1.5mm}
 #doc .capa .rodape b{color:#c9a227; font-weight:600}
 
 /* --- pagina de leitura --- */
@@ -495,8 +498,13 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 #doc .aviso-capa b{color:#0f1a29}
 
 /* --- blocos por categoria --- */
-#doc .bloco{break-inside:auto}
-#doc .bloco + .bloco{break-before:page; padding-top:1mm}
+#doc .bloco{break-inside:auto; padding-bottom:7mm}
+/* categoria nao comeca mais em pagina nova: numa praca pequena isso deixava
+   cinco paginas quase vazias. O titulo separa, e a quebra so vem quando a
+   pagina acaba de verdade. */
+#doc .bloco + .bloco{margin-top:9mm}
+#doc .bloco h2{break-after:avoid}
+#doc tbody tr{orphans:2; widows:2}
 #doc .bloco h2{
   font:400 20pt/1.15 var(--serif); color:#0f1a29; display:flex; align-items:baseline;
   gap:5mm; border-bottom:2pt solid #c9a227; padding-bottom:3mm; margin-bottom:1mm;
@@ -504,7 +512,8 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 #doc .bloco h2 span{font:700 9.5pt/1 var(--sans); letter-spacing:.12em; color:#8695a9;
   text-transform:uppercase}
 #doc table{width:100%; border-collapse:collapse; margin-top:3mm; table-layout:fixed}
-#doc thead{display:table-header-group}
+#doc thead{display:table-header-group; break-inside:avoid}
+#doc thead th{break-after:avoid}
 #doc thead th{font:700 8.5pt/1.2 var(--sans); letter-spacing:.04em; text-transform:uppercase;
   color:#fff; background:#0f1a29; text-align:center; padding:3mm 1.5mm}
 #doc thead th.esq{text-align:left}
@@ -682,6 +691,13 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
   </div>
 </details>
 
+
+
+<main id="lista"></main>
+<div id="maisWrap" style="display:none"><button id="mais"></button></div>
+
+</div><!-- /pRede -->
+
 <dialog id="dlgCorr" class="janela" aria-labelledby="tCorr">
   <h2 id="tCorr">Seus dados no PDF</h2>
   <p class="nota">Vão na capa e no rodapé de todo PDF que você gerar. Ficam guardados
@@ -704,10 +720,6 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 </dialog>
 
 <div id="doc" aria-hidden="true"></div>
-<main id="lista"></main>
-<div id="maisWrap" style="display:none"><button id="mais"></button></div>
-
-</div><!-- /pRede -->
 
 <footer>
   <span class="selo-rodape" id="seloRod">Mazza Broker</span>
@@ -1295,6 +1307,9 @@ function montaDocumento(){
   const porTipo = {0:[], 1:[], 2:[], 3:[], 4:[]};
   for(const r of achados) porTipo[r.p[4]].push(r);
   const qtPlano = [];
+  /* o PDF mostra so os produtos marcados na tela; nenhum marcado = todos */
+  const COLS = st.planos.size ? [...st.planos].sort((a,b) => a-b)
+                              : PLANOS.map((_, i) => i);
   for(let i=0;i<NP;i++){
     let n = 0;
     for(const r of achados) if(r.mask & MASCARA[i]) n++;
@@ -1302,8 +1317,9 @@ function montaDocumento(){
   }
 
   /* ---------------- capa ---------------- */
-  let h = '<section class="capa"><div class="selo">' + esc(corretora()) +
-    '</div><div class="fio"></div>' +
+  let h = '<section class="capa">' +
+    (DADOS.logo ? '<img class="logo-op" src="' + DADOS.logo + '" alt="Bradesco Saúde">' : '') +
+    '<div class="selo">' + esc(corretora()) + '</div><div class="fio"></div>' +
     '<h1>Rede referenciada<em>Bradesco Saúde</em></h1>' +
     '<div class="praca">' + esc(onde) +
     (recorte.length ? '<small>' + esc(recorte.join(' · ')) + '</small>' : '') + '</div>' +
@@ -1314,7 +1330,7 @@ function montaDocumento(){
   for(const c of cats)
     if(porTipo[c[0]].length)
       h += '<div><b>' + porTipo[c[0]].length.toLocaleString('pt-BR') + '</b><span>' + c[1] + '</span></div>';
-  for(let i=0;i<NP;i++)
+  for(const i of COLS)
     h += '<div><b>' + qtPlano[i].toLocaleString('pt-BR') + '</b><span>' + esc(PLANOS[i]) + '</span></div>';
   h += '</div><div class="rodape">Documento gerado em ' + esc(DADOS.gerado) +
        ' · ' + assinatura() + '</div></section>';
@@ -1355,7 +1371,7 @@ function montaDocumento(){
     h += '<section class="bloco"><h2>' + par[1] + '<span>' + lista.length +
          (lista.length === 1 ? ' prestador' : ' prestadores') + '</span></h2>' +
          '<table><thead><tr><th class="esq">Prestador</th><th class="esq">Bairro</th>';
-    for(let i=0;i<NP;i++) h += '<th class="p'+i+'">' + esc(PLANOS[i]) + '</th>';
+    for(const i of COLS) h += '<th class="p'+i+'">' + esc(PLANOS[i]) + '</th>';
     h += '</tr></thead><tbody>';
     for(const r of lista){
       const p = r.p, blocos = (p[6] && p[6][0]) || 0;
@@ -1375,7 +1391,7 @@ function montaDocumento(){
       }
       if(sub.length) h += '<small>' + sub.join('<br>') + '</small>';
       h += '</td><td class="bairro">' + esc(BAI[p[2]] || '—') + '</td>';
-      for(let i=0;i<NP;i++){
+      for(const i of COLS){
         const t = marca(r.mask, i);
         h += '<td class="pl ' + (t ? 's'+i : 'nao') + '">' +
              (t ? '&#10003;' + (t!=='sim' ? '<i>'+esc(t)+'</i>' : '') : '&ndash;') + '</td>';
