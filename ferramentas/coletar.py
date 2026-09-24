@@ -131,10 +131,22 @@ class Coleta:
             return
         print(f"  {len(pontos)} ponto(s), {len(falta)} consultas…", flush=True)
         inicio, hoje = time.time(), date.today().isoformat()
+
+        def uma(c):
+            # falha que sobrou das novas tentativas nao derruba a coleta: a consulta
+            # fica fora do cache e e refeita na proxima passada
+            try:
+                return c, api.busca(*c)
+            except Exception as e:  # noqa: BLE001
+                print(f"  falhou {c[:3]} em {c[3]},{c[4]}: {e}", flush=True)
+                return c, None
+
         with self.arq_c.open("a", encoding="utf-8") as fc, \
                 self.arq_p.open("a", encoding="utf-8") as fp, \
                 ThreadPoolExecutor(self.paralelo) as ex:
-            for n, (chave, lista) in enumerate(ex.map(lambda c: (c, api.busca(*c)), falta), 1):
+            for n, (chave, lista) in enumerate(ex.map(uma, falta), 1):
+                if lista is None:
+                    continue
                 enxuto = []
                 for x in lista:
                     if x["codigo"] not in self.fichas:
@@ -162,7 +174,12 @@ class Coleta:
             perto = [p for p in feitos if km(p, centro) <= RAIO_SEGURO]
             pontos = [] if perto else [centro]
         while True:
-            self.consulta(pontos)
+            for _ in range(3):
+                self.consulta(pontos)
+                if all(self.completo(p) for p in pontos):
+                    break
+            else:
+                print(f"  atencao: {cidade}/{uf} ficou com consultas faltando", flush=True)
             usados = pontos + [p for p in feitos if p not in pontos]
             # prestador da cidade longe de todos os pontos: a cidade passa do raio
             longe = []

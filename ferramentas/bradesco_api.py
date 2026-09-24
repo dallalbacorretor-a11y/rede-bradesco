@@ -34,7 +34,9 @@ def _pede(url, corpo=None, cabecalho=None, bruto=False):
                                  method="POST" if dados else "GET")
     with urllib.request.urlopen(req, timeout=90) as r:
         texto = r.read().decode()
-    return texto if bruto else json.loads(texto)
+    if bruto:
+        return texto
+    return json.loads(texto) if texto.strip() else None   # 204: ninguem no raio
 
 
 def autentica(forcar=False):
