@@ -561,6 +561,8 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
 #doc .rodape-doc span:first-child{min-width:0}
 #doc .rodape-doc span:last-child{flex:0 0 auto}
 #doc .rodape-doc b{color:#9a7420; font-weight:700; letter-spacing:.16em; text-transform:uppercase}
+/* a marca da operadora tambem no pe de cada pagina, como no PDF da Amil */
+#doc .rodape-doc .logo-rodape{height:4.2mm; width:auto; vertical-align:-1.3mm; margin-right:3.5mm}
 </style>
 </head>
 <body>
@@ -1417,7 +1419,8 @@ function montaDocumento(){
   h += '<div class="rodape-doc"><span><b>' + esc(corretora()) + '</b>' +
        (CORR.nome ? ' &nbsp;·&nbsp; ' + esc(CORR.nome) : '') +
        ' &nbsp;·&nbsp; Rede referenciada Bradesco Saúde &nbsp;·&nbsp; ' + esc(onde) + '</span>' +
-       '<span>Confirme no portal da operadora antes de contratar</span></div>';
+       '<span>' + (DADOS.logo ? '<img class="logo-rodape" src="' + DADOS.logo +
+       '" alt="">' : '') + 'Confirme no portal da operadora antes de contratar</span></div>';
   alvo.innerHTML = h;
 }
 
@@ -1922,7 +1925,8 @@ function imprimeTroca(){
   h += '<div class="rodape-doc"><span><b>' + esc(corretora()) + '</b>' +
        (CORR.nome ? ' &nbsp;·&nbsp; ' + esc(CORR.nome) : '') +
        ' &nbsp;·&nbsp; ' + esc(A) + ' &rarr; ' + esc(B) + ' &nbsp;·&nbsp; ' + esc(onde) + '</span>' +
-       '<span>Confirme no portal da operadora antes de contratar</span></div>';
+       '<span>' + (DADOS.logo ? '<img class="logo-rodape" src="' + DADOS.logo +
+       '" alt="">' : '') + 'Confirme no portal da operadora antes de contratar</span></div>';
 
   $('doc').innerHTML = h;
   docPronto = true;
