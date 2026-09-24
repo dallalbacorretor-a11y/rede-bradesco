@@ -7,13 +7,19 @@ endereco e telefone. As outras cidades continuam como estavam (planilha do
 buscador e listas de hospitais e laboratorios). DADOS.consulta guarda quais
 cidades vieram da consulta e em que data.
 
+Quem estava na base anterior (planilha ou listas em PDF) e nao foi achado na
+consulta, nem pelo nome, continua na pagina como estava, marcado: terceiro
+item do 7o campo = 2, e a fonte anterior no 8o.
+
 O formato de DADOS.pr nao muda (o comparativo do rede-amil-bradesco le os
 mesmos campos); a consulta so acrescenta o 8o campo, [endereco, telefones]:
   [nome, cidade, bairro, [codigos], tipo, [esp, mascara, ...],
    [blocos de internacao, mascara de exames, 0], [endereco, telefones]]
+  fora da busca oficial: [..., [blocos, exames, 2], ["", "", fonte anterior]]
 
 Uso: python3 ferramentas/montar.py
 """
+import gzip
 import json
 import re
 import sys
@@ -127,6 +133,10 @@ def main():
     prenomes = {sem_acento(p["nome"]).split()[0] for c in coletas for p in c["prestadores"]
                 if not p["cnpj"] and p["nome"].split() and len(p["nome"].split()[0]) >= 3}
 
+    base = json.loads(gzip.decompress((RAIZ / "ferramentas" / "base_anterior.json.gz")
+                                      .read_bytes()))
+    fora_da_busca = 0
+
     esp_i = {e: i for i, e in enumerate(D["esp"])}
     serv_i = {s: i for i, s in enumerate(D["serv"])}
     ufs = {u: i for i, u in enumerate(D["uf"])}
@@ -166,6 +176,31 @@ def main():
                 p["nome"], c, p["bairro"], [p["cod"]], classe(p, prenomes), pares,
                 [blocos, exames, 0],
                 [p["end"], " · ".join(telefone(t) for t in p["tel"][:3])]])
+        # da base anterior e nao achado na consulta, nem pelo nome: fica, marcado
+        anteriores = base["cidades"].get(f"{col['uf']}|{col['cidade']}", [])
+        for item in (col.get("conferencia") or {}).get("itens", []):
+            if "achado" in item:
+                continue
+            b = next((b for b in anteriores
+                      if b["nome"] == item["nome"] and b["bairro"] == item["bairro"]), None)
+            if not b:
+                continue
+            fontes = []
+            if b["buscador"]:
+                fontes.append(f"planilha do buscador ({base['ref']})")
+            if b["hosp"]:
+                fontes.append("lista de hospitais em PDF (" +
+                              base["hospRef"].get(col["uf"], {}).get("ref", "?") + ")")
+            if b["lab"]:
+                fontes.append("lista de laboratórios em PDF (" +
+                              base["labRef"].get(col["uf"], {}).get("ref", "?") + ")")
+            pares = []
+            for e, m in b["esp"]:
+                pares += [indice(D["esp"], e, esp_i), m]
+            blocos = [[indice(D["serv"], v, serv_i) for v in bl] for bl in b["hosp"]] or 0
+            linhas.append([b["nome"], c, b["bairro"], b["cod"], b["tipo"], pares,
+                           [blocos, b["lab"], 2], ["", "", " e ".join(fontes)]])
+            fora_da_busca += 1
         ordem = {1: 0, 0: 1, 3: 2, 2: 3, 4: 4}
         linhas.sort(key=lambda r: (ordem[r[4]], sem_acento(r[0])))
         por_cidade[c] = linhas
@@ -195,7 +230,8 @@ def main():
     texto = json.dumps(D, ensure_ascii=False, separators=(",", ":"))
     PAGINA.write_bytes((html[:ini] + texto + html[fim:]).encode("utf-8"))
     n = sum(len(v) for v in por_cidade.values())
-    print(f"{len(por_cidade)} cidade(s) da consulta oficial, {n} prestadores; "
+    print(f"{len(por_cidade)} cidade(s) da consulta oficial, {n} prestadores "
+          f"({fora_da_busca} da base anterior fora da busca oficial); "
           f"total na pagina: {len(pr)} prestadores em {len({p[1] for p in pr})} cidades")
 
 

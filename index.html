@@ -191,6 +191,7 @@ button{font:inherit; color:inherit; cursor:pointer}
 .tab-rede .sub{display:block; margin-top:4px; font-size:12.5px; line-height:1.55; color:var(--muted)}
 .tab-rede .sub b{color:var(--ink); font-weight:600}
 .tab-rede .sub .tel{white-space:nowrap; color:var(--ink)}
+.tab-rede .sub.fora{color:var(--alerta)}
 .tab-rede .selos{margin-top:6px; display:flex; gap:5px; flex-wrap:wrap}
 .tab-rede .selo-t{font:600 10px/1 var(--sans); letter-spacing:.08em; text-transform:uppercase;
   padding:4px 7px; border-radius:4px; background:var(--raised); color:var(--muted);
@@ -572,6 +573,13 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
         rede, a tela mostra as cidades da região que têm, da mais perto para a mais longe.</p>
     </div>
     <div>
+      <h3>Fora da busca oficial</h3>
+      <p>Nas cidades já atualizadas pela consulta oficial, quem estava na lista em PDF ou na
+        planilha anterior e não aparece na busca da Bradesco — nem procurando pelo nome — continua
+        na lista, com a etiqueta <b>fora da busca oficial</b> e a fonte de onde veio. Pode ter
+        saído da rede: confirme antes de indicar.</p>
+    </div>
+    <div>
       <h3>Antes de fechar</h3>
       <p>A rede é definida e alterada só pela operadora. <b>Confirme no
         <a href="https://www.bradescoseguros.com.br/clientes/produtos/plano-saude/consulta-de-rede-referenciada/"
@@ -876,6 +884,10 @@ function linhaRede(r){
 
   let h = '<tr><td><span class="nm">' + esc(NOM[p[0]]) + '</span>' +
           '<span class="sub">' + onde + '</span>';
+  /* estava na planilha ou nas listas em PDF e nao aparece na consulta oficial */
+  if(p[6] && p[6][2] === 2 && p[7] && p[7][2])
+    h += '<span class="sub fora">Consta na ' + esc(p[7][2]) + ', mas não aparece na busca da ' +
+         'Bradesco de ' + esc(CONSULTA[p[1]] || '') + ', nem pelo nome. Confirme antes de indicar.</span>';
   /* endereco e telefone so nas cidades que ja vem da consulta oficial */
   if(p[7] && (p[7][0] || p[7][1]))
     h += '<span class="sub">' + esc(p[7][0] || '') + (p[7][0] && p[7][1] ? ' · ' : '') +
@@ -897,7 +909,8 @@ function linhaRede(r){
   }
   if(lab) selos.push('exames');
   if(r.varia) selos.push('varia por especialidade');
-  if(p[6] && p[6][2]) selos.push('só na lista oficial');
+  if(p[6] && p[6][2] === 1) selos.push('só na lista oficial');
+  if(p[6] && p[6][2] === 2) selos.push('fora da busca oficial');
   if(selos.length)
     h += '<div class="selos">' + selos.map(x => '<span class="selo-t">' + x + '</span>').join('') + '</div>';
   h += '</td>';
@@ -1139,8 +1152,11 @@ function resumo(){
   box.innerHTML = h + '</div>';
 
   if(daConsulta(st.cid)){
+    const fora = achados.filter(r => r.p[6] && r.p[6][2] === 2).length;
     selos.innerHTML = '<span class="selo-uf ok">Rede completa da cidade: consulta oficial da Bradesco em ' +
-      esc(CONSULTA[st.cid]) + ' — consultas, exames, internação e pronto-socorro, com endereço e telefone</span>';
+      esc(CONSULTA[st.cid]) + ' — consultas, exames, internação e pronto-socorro, com endereço e telefone</span>' +
+      (fora ? '<span class="selo-uf falta">' + fora + (fora === 1 ? ' prestador' : ' prestadores') +
+              ' das listas anteriores fora da busca oficial, marcado' + (fora === 1 ? '' : 's') + '</span>' : '');
   } else if(st.cid>=0){
     const uf = UF[CID[st.cid][0]];
     let s = '';
@@ -1272,6 +1288,10 @@ function documentoRede(){
   if(daConsulta(st.cid)){
     fonte.push(['Toda a rede', true], [' — consulta oficial de rede referenciada no site da Bradesco Saúde, ' +
                'feita em ' + CONSULTA[st.cid] + ': consultas, exames, internação e pronto-socorro.', false]);
+    const fora = achados.filter(r => r.p[6] && r.p[6][2] === 2).length;
+    if(fora) fonte.push([' ' + fora + (fora === 1 ? ' prestador das listas anteriores não aparece'
+                          : ' prestadores das listas anteriores não aparecem') +
+                         ' na busca e ' + (fora === 1 ? 'vai marcado' : 'vão marcados') + '.', false]);
   } else {
     fonte.push(['Consultas e exames', true], [' — buscador oficial da Bradesco, base ' + DADOS.ref + '. ', false]);
     if(uf && HREF[uf]) fonte.push(['Internação', true], [' — lista oficial de hospitais de ' + uf + ', ' + HREF[uf].ref + '. ', false]);
@@ -1336,6 +1356,7 @@ function documentoRede(){
           esp = espUmaLinha(vis, maxEsp);
         }
         return { nome: NOM[p[0]], detalhe: detalhe, esp: esp,
+                 tag: p[6] && p[6][2] === 2 ? 'FORA DA BUSCA OFICIAL' : '',
                  end: p[7] ? [p[7][0]].concat(p[7][1] ? p[7][1].split(' · ').slice(0, 2) : [])
                                .filter(Boolean).join('\n') : '',
                  bairro: BAI[p[2]] || '', cidade: c ? c[1] + ' / ' + UF[c[0]] : '',
@@ -1408,7 +1429,9 @@ function tabela(){
   for(const r of achados){
     const p = r.p, c = CID[p[1]];
     const f = [];
-    if(p[7]) f.push('consulta oficial ' + (CONSULTA[p[1]] || ''));
+    if(p[6] && p[6][2] === 2) f.push((p[7] && p[7][2] || 'base anterior') + '; fora da consulta oficial ' +
+                                      (CONSULTA[p[1]] || ''));
+    else if(p[7]) f.push('consulta oficial ' + (CONSULTA[p[1]] || ''));
     else {
       if(!p[6] || p[6][2]!==1) f.push('buscador');
       if(p[6] && p[6][0]) f.push('lista de hospitais');
@@ -1508,13 +1531,20 @@ function copiar(){
     linha('Exames', LREF)
   ]).join('<br>');
 
+  /* ate 12 cidades pelo nome; depois, quantas por estado */
+  const porUf = {};
+  for(const c of cons) porUf[UF[CID[c][0]]] = (porUf[UF[CID[c][0]]] || 0) + 1;
+  const listaCons = cons.length <= 12 ? cons.map(nomeCid).sort().join(', ')
+    : cons.length.toLocaleString('pt-BR') + ' cidades (' + Object.keys(porUf).sort()
+        .map(u => u + ' ' + porUf[u]).join(', ') + ')';
   const det = [];
   if(cons.length)
     det.push('<b>Consulta oficial:</b> <a href="' + PORTAL + '" target="_blank" rel="noopener" ' +
       'style="color:var(--ouro)">consulta de rede ' +
-      'referenciada</a> do site da Bradesco Saúde, ' + esc(quando) + ' — ' +
-      esc(cons.map(nomeCid).sort().join(', ')) + '. Nessas cidades a rede inteira vem dela ' +
-      '(consultas, exames, internação e pronto-socorro, com endereço e telefone) e substitui as listas abaixo.');
+      'referenciada</a> do site da Bradesco Saúde, ' + esc(quando) + ' — ' + esc(listaCons) +
+      '. Nessas cidades a rede inteira vem dela ' +
+      '(consultas, exames, internação e pronto-socorro, com endereço e telefone), conferida contra as ' +
+      'listas abaixo: quem está nelas e não aparece na busca, nem pelo nome, continua marcado.');
   det.push('<b>Fontes:</b> ' + esc(DADOS.fonte) + ' — buscador oficial Bradesco Saúde, aba ' +
            '“27 ufs”, base ' + esc(DADOS.ref) + '.');
   for(const par of [[HREF,'Lista de hospitais por linha de planos'],

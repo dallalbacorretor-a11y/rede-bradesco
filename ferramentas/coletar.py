@@ -7,6 +7,13 @@ ponto. Fica so quem tem endereco na cidade pedida. Cidade grande nao cabe num
 raio so: enquanto houver prestador da cidade a mais de 12 km de todos os
 pontos ja consultados, consulta de novo a partir dele.
 
+Depois confere contra a base anterior (planilha do buscador e listas oficiais
+em PDF, ferramentas/base_anterior.json.gz): quem estava la e nao veio na
+varredura e procurado pelo nome, nas 7 redes. A busca por especialidade so
+acha o par tipo de atendimento x especialidade do catalogo do site; a busca
+por nome acha tambem quem esta cadastrado fora dele (ex.: ultrassonografia
+como "terapia"). Quem nem assim aparecer fica listado em "conferencia".
+
 Grava ferramentas/consulta/<UF>/<CIDADE>.json, que o montar.py poe na pagina.
 
 As respostas ficam em ferramentas/.cache/ (fora do git) e valem para todas as
@@ -20,6 +27,7 @@ Uso:
   python3 ferramentas/coletar.py --uf PR        # todas as cidades do estado
 """
 import argparse
+import gzip
 import json
 import math
 import sys
@@ -30,6 +38,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import bradesco_api as api  # noqa: E402
+import nomes  # noqa: E402
 
 RAIZ = Path(__file__).resolve().parent.parent
 PASTA = RAIZ / "ferramentas" / "consulta"
@@ -82,12 +91,19 @@ class Coleta:
                          "confira REDES antes de coletar")
         self.cat = [(t["codigoTipoAtendimento"], api.especialidades(t["codigoTipoAtendimento"]))
                     for t in api.tipos_atendimento()]
-        self.nome_esp = {(t, e["codigo"]): e["descricao"] for t, es in self.cat for e in es}
+        # o codigo da especialidade e o mesmo em todos os tipos (Obstetricia e 26 em
+        # consulta, internacao e pronto-socorro)
+        self.nome_esp = {e["codigo"]: e["descricao"] for _, es in self.cat for e in es}
+        base = RAIZ / "ferramentas" / "base_anterior.json.gz"
+        self.base = (json.loads(gzip.decompress(base.read_bytes()))["cidades"]
+                     if base.exists() else {})
         CACHE.mkdir(parents=True, exist_ok=True)
         self.arq_c, self.arq_p = CACHE / "consultas.jsonl", CACHE / "prestadores.jsonl"
+        self.arq_n = CACHE / "nomes.jsonl"
         self.feitas = {}          # consulta -> data
         self.hits = {}            # codigo -> {(tipo, esp): mascara de redes}
         self.fichas = {}          # codigo -> prestador como a busca devolve
+        self.por_nome = {}        # (rede, termo, lat, lon) -> [[codigo, tipo, [esp...]]]
         if self.arq_p.exists():
             for linha in self.arq_p.open(encoding="utf-8"):
                 try:
@@ -103,6 +119,13 @@ class Coleta:
                     continue
                 k = d["k"]
                 self._guarda((k[0], k[1], tuple(k[2]), k[3], k[4]), d["r"], d["d"])
+        if self.arq_n.exists():
+            for linha in self.arq_n.open(encoding="utf-8"):
+                try:
+                    d = json.loads(linha)
+                except ValueError:
+                    continue
+                self._guarda_nome(tuple(d["k"]), d["r"])
 
     def _guarda(self, chave, lista, dia):
         self.feitas[chave] = dia
@@ -111,6 +134,82 @@ class Coleta:
             h = self.hits.setdefault(cod, {})
             for e in esps:
                 h[(chave[1], e)] = h.get((chave[1], e), 0) | bit
+
+    def _guarda_nome(self, chave, linhas):
+        self.por_nome[chave] = linhas
+        bit = 1 << BIT[chave[0]]
+        for cod, tipo, esps in linhas:
+            h = self.hits.setdefault(cod, {})
+            for e, desc in esps:
+                self.nome_esp.setdefault(e, desc)
+                h[(tipo, e)] = h.get((tipo, e), 0) | bit
+
+    def busca_nome(self, termo, centro):
+        """Busca por nome nas 7 redes; devolve os codigos que voltaram."""
+        falta = [(r, termo, centro[0], centro[1]) for r, _ in REDES
+                 if (r, termo, centro[0], centro[1]) not in self.por_nome]
+
+        def uma(k):
+            try:
+                r = api.chama("/prestadores/nome", {
+                    "codigoRede": k[0], "codigoTipoAcomodacao": "Q",
+                    "enderecoConsulta": {"latitude": k[2], "longitude": k[3]},
+                    "instaAdapt": "N", "nomeReferenciado": k[1], "totalPaginas": 1})
+                return k, (r or {}).get("listaReferenciados") or []
+            except Exception as e:  # noqa: BLE001
+                print(f"  falhou busca por nome {k}: {e}", flush=True)
+                return k, None
+
+        with self.arq_n.open("a", encoding="utf-8") as fn, \
+                self.arq_p.open("a", encoding="utf-8") as fp, \
+                ThreadPoolExecutor(self.paralelo) as ex:
+            for k, lista in ex.map(uma, falta):
+                if lista is None:
+                    continue
+                linhas = []
+                for x in lista:
+                    if x["codigo"] not in self.fichas:
+                        x = {c: v for c, v in x.items() if c not in ("distancia", "ranking")}
+                        self.fichas[x["codigo"]] = x
+                        fp.write(json.dumps(x, ensure_ascii=False) + "\n")
+                    # uma linha por tipo de atendimento, com todas as especialidades dele
+                    linhas.append([x["codigo"], x["codigoEstabelecimento"],
+                                   [[e["codigo"], e["descricao"]] for e in x["especialidades"]]])
+                fn.write(json.dumps({"k": list(k), "d": date.today().isoformat(),
+                                     "r": linhas}, ensure_ascii=False) + "\n")
+                self._guarda_nome(k, linhas)
+        return {cod for r, _ in REDES for cod, _, _ in
+                self.por_nome.get((r, termo, centro[0], centro[1]), [])}
+
+    def conferir(self, cidade, uf, centro):
+        """Quem estava na base anterior e nao veio na varredura: procura pelo nome."""
+        anteriores = self.base.get(f"{uf}|{cidade}", [])
+        if not anteriores:
+            return {"total": 0, "varredura": 0, "itens": []}
+        nomes_de = lambda c: [self.fichas[c].get("nomeFantasia"), self.fichas[c].get("razaoSocial")]
+        daqui = self.da_cidade(cidade, uf)
+        itens, na_varredura = [], 0
+        for b in anteriores:
+            fonte = ((["buscador"] if b["buscador"] else []) +
+                     (["hospitais"] if b["hosp"] else []) + (["laboratorios"] if b["lab"] else []))
+            if any(nomes.mesmo_estrito(b["nome"], nomes_de(c), cidade) for c in daqui):
+                na_varredura += 1
+                continue
+            item = {"nome": b["nome"], "bairro": b["bairro"], "fonte": fonte}
+            # a busca por nome so devolve quem tem o termo escrito no nome ou na razao
+            # social: "CEDICOR" nao traz a "CEDIC" da cidade vizinha
+            termo = nomes.termo_de_busca(b["nome"], cidade)
+            voltou = self.busca_nome(termo, centro) if termo else set()
+            achado = [c for c in voltou if nomes.mesmo_estrito(b["nome"], nomes_de(c), cidade)]
+            if achado:
+                c = min(achado, key=lambda c: localidade(self.fichas[c]) != (cidade, uf))
+                item.update(achado=c, termo=termo, nome_hoje=self.fichas[c].get("nomeFantasia"),
+                            cidade_hoje=localidade(self.fichas[c])[0])
+            itens.append(item)
+        faltam = sum(1 for i in itens if "achado" not in i)
+        print(f"  conferencia: {len(anteriores)} da base anterior, {na_varredura} na varredura, "
+              f"{len(itens) - faltam} pela busca por nome, {faltam} nao achados", flush=True)
+        return {"total": len(anteriores), "varredura": na_varredura, "itens": itens}
 
     def consultas(self, ponto):
         for rede, _ in REDES:
@@ -195,6 +294,7 @@ class Coleta:
             novo = max(longe)[1]
             pontos.append((round(novo[0], 4), round(novo[1], 4)))
         dias = sorted({self.feitas[c] for p in usados for c in self.consultas(p)})
+        conferencia = self.conferir(cidade, uf, centro)
 
         prest = []
         for cod in sorted(self.da_cidade(cidade, uf)):
@@ -202,8 +302,8 @@ class Coleta:
             e = x["listaEnderecos"][0]
             at = {}
             for (tipo, esp), m in sorted(self.hits.get(cod, {}).items()):
-                if (tipo, esp) in self.nome_esp:
-                    at.setdefault(str(tipo), {})[self.nome_esp[(tipo, esp)]] = m
+                if esp in self.nome_esp:
+                    at.setdefault(str(tipo), {})[self.nome_esp[esp]] = m
             if not at:
                 continue
             prest.append({
@@ -224,7 +324,8 @@ class Coleta:
         saida.write_text(json.dumps({
             "cidade": cidade, "uf": uf, "data": dias[0] if dias else date.today().isoformat(),
             "fonte": api.PAGINA, "pontos": [list(p) for p in usados],
-            "redes": [r for r, _ in REDES], "prestadores": prest},
+            "redes": [r for r, _ in REDES], "prestadores": prest,
+            "conferencia": conferencia},
             ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
         print(f"{cidade}/{uf}: {len(prest)} prestadores, {len(usados)} ponto(s)", flush=True)
         return prest
