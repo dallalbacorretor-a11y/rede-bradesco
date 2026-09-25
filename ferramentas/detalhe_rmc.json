@@ -1,0 +1,3681 @@
+{
+ "data": "2026-09-25",
+ "pontos": [
+  [
+   -25.66,
+   -49.42
+  ],
+  [
+   -25.66,
+   -49.3602
+  ],
+  [
+   -25.66,
+   -49.3005
+  ],
+  [
+   -25.66,
+   -49.2407
+  ],
+  [
+   -25.66,
+   -49.1809
+  ],
+  [
+   -25.66,
+   -49.1212
+  ],
+  [
+   -25.606,
+   -49.42
+  ],
+  [
+   -25.606,
+   -49.3602
+  ],
+  [
+   -25.606,
+   -49.3005
+  ],
+  [
+   -25.606,
+   -49.2407
+  ],
+  [
+   -25.606,
+   -49.1809
+  ],
+  [
+   -25.606,
+   -49.1212
+  ],
+  [
+   -25.5521,
+   -49.42
+  ],
+  [
+   -25.5521,
+   -49.3602
+  ],
+  [
+   -25.5521,
+   -49.3005
+  ],
+  [
+   -25.5521,
+   -49.2407
+  ],
+  [
+   -25.5521,
+   -49.1809
+  ],
+  [
+   -25.5521,
+   -49.1212
+  ],
+  [
+   -25.4981,
+   -49.42
+  ],
+  [
+   -25.4981,
+   -49.3602
+  ],
+  [
+   -25.4981,
+   -49.3005
+  ],
+  [
+   -25.4981,
+   -49.2407
+  ],
+  [
+   -25.4981,
+   -49.1809
+  ],
+  [
+   -25.4981,
+   -49.1212
+  ],
+  [
+   -25.4442,
+   -49.42
+  ],
+  [
+   -25.4442,
+   -49.3602
+  ],
+  [
+   -25.4442,
+   -49.3005
+  ],
+  [
+   -25.4442,
+   -49.2407
+  ],
+  [
+   -25.4442,
+   -49.1809
+  ],
+  [
+   -25.4442,
+   -49.1212
+  ],
+  [
+   -25.3902,
+   -49.42
+  ],
+  [
+   -25.3902,
+   -49.3602
+  ],
+  [
+   -25.3902,
+   -49.3005
+  ],
+  [
+   -25.3902,
+   -49.2407
+  ],
+  [
+   -25.3902,
+   -49.1809
+  ],
+  [
+   -25.3902,
+   -49.1212
+  ],
+  [
+   -25.3363,
+   -49.42
+  ],
+  [
+   -25.3363,
+   -49.3602
+  ],
+  [
+   -25.3363,
+   -49.3005
+  ],
+  [
+   -25.3363,
+   -49.2407
+  ],
+  [
+   -25.3363,
+   -49.1809
+  ],
+  [
+   -25.3363,
+   -49.1212
+  ],
+  [
+   -25.2823,
+   -49.42
+  ],
+  [
+   -25.2823,
+   -49.3602
+  ],
+  [
+   -25.2823,
+   -49.3005
+  ],
+  [
+   -25.2823,
+   -49.2407
+  ],
+  [
+   -25.2823,
+   -49.1809
+  ],
+  [
+   -25.2823,
+   -49.1212
+  ],
+  [
+   -24.6606,
+   -48.9922
+  ],
+  [
+   -25.9899,
+   -49.3343
+  ],
+  [
+   -25.5804,
+   -49.6291
+  ],
+  [
+   -25.2066,
+   -49.1141
+  ],
+  [
+   -25.3044,
+   -49.0551
+  ],
+  [
+   -25.98,
+   -49.6844
+  ],
+  [
+   -25.4525,
+   -49.529
+  ],
+  [
+   -25.3687,
+   -49.4501
+  ],
+  [
+   -24.8246,
+   -49.261
+  ],
+  [
+   -25.6788,
+   -49.535
+  ],
+  [
+   -25.4195,
+   -49.2646
+  ],
+  [
+   -24.5665,
+   -49.4219
+  ],
+  [
+   -25.2193,
+   -49.3454
+  ],
+  [
+   -25.7671,
+   -49.7168
+  ],
+  [
+   -25.777,
+   -49.3282
+  ],
+  [
+   -26.0965,
+   -49.4336
+  ],
+  [
+   -25.4422,
+   -49.0624
+  ],
+  [
+   -25.3673,
+   -49.0763
+  ],
+  [
+   -25.8734,
+   -49.4973
+  ],
+  [
+   -25.1892,
+   -49.3143
+  ],
+  [
+   -26.095,
+   -49.7982
+  ],
+  [
+   -25.5313,
+   -49.2031
+  ],
+  [
+   -25.9311,
+   -49.195
+  ],
+  [
+   -24.9731,
+   -49.0879
+  ]
+ ],
+ "consultas": 25200,
+ "incompletas": 0,
+ "fichas_especialidades": 4857,
+ "especialidades_da_ficha": 64,
+ "cidades": [
+  {
+   "cidade": "ALMIRANTE TAMANDARE",
+   "enderecos": 2,
+   "prestadores": 2,
+   "antes": 2,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "ARAUCARIA",
+   "enderecos": 22,
+   "prestadores": 22,
+   "antes": 21,
+   "novos": 1,
+   "sairam": 0
+  },
+  {
+   "cidade": "CAMPINA GRANDE DO SUL",
+   "enderecos": 4,
+   "prestadores": 4,
+   "antes": 4,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "CAMPO LARGO",
+   "enderecos": 14,
+   "prestadores": 14,
+   "antes": 14,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "COLOMBO",
+   "enderecos": 15,
+   "prestadores": 15,
+   "antes": 15,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "CURITIBA",
+   "enderecos": 468,
+   "prestadores": 460,
+   "antes": 459,
+   "novos": 1,
+   "sairam": 0
+  },
+  {
+   "cidade": "FAZENDA RIO GRANDE",
+   "enderecos": 8,
+   "prestadores": 8,
+   "antes": 8,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "LAPA",
+   "enderecos": 3,
+   "prestadores": 3,
+   "antes": 3,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "PINHAIS",
+   "enderecos": 13,
+   "prestadores": 13,
+   "antes": 13,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "PIRAQUARA",
+   "enderecos": 7,
+   "prestadores": 7,
+   "antes": 7,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "QUATRO BARRAS",
+   "enderecos": 3,
+   "prestadores": 3,
+   "antes": 3,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "RIO NEGRO",
+   "enderecos": 3,
+   "prestadores": 3,
+   "antes": 3,
+   "novos": 0,
+   "sairam": 0
+  },
+  {
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "enderecos": 87,
+   "prestadores": 87,
+   "antes": 83,
+   "novos": 4,
+   "sairam": 0
+  }
+ ],
+ "procurados": [
+  {
+   "nome": "Cim Agua Verde - Cent Integr de Med",
+   "cidade": "CURITIBA",
+   "end": "Av Presidente Getulio Vargas, 3201",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hospital Erastinho",
+   "cidade": "CURITIBA",
+   "end": "R Doutor Ovande Do Amaral, 201",
+   "bairro": "Jardim das Americas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hospital Menino Deus",
+   "cidade": "CURITIBA",
+   "end": "Avenida Visconde de Guarapuava, 355",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hospital Sao Lucas",
+   "cidade": "CURITIBA",
+   "end": "Avenida Joao Gualberto, 1946 / Avenida Joao Gualberto, 1974 (só Amil) / Rua Padre Anchieta, 2050 (só Amil)",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hospital Union Ltda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Silva Jardim, 3888 Casa",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hospital XV",
+   "cidade": "CURITIBA",
+   "end": "Rua XV de Novembro, 2223",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto de Oftalmologia de Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Rua Brigadeiro Franco, 2848",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Lipoplastic",
+   "cidade": "CURITIBA",
+   "end": "Rua Dom Alberto Goncalves, 311",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Sociedade Medica Fraturas Norte",
+   "cidade": "CURITIBA",
+   "end": "Rua Holanda, 406 / R Holanda, 390 (só SulAmérica)",
+   "bairro": "Bacacheri",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ab Vitae",
+   "cidade": "CURITIBA",
+   "end": "Av Joao Gualberto, 1342 Andar 15",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Aconchego Pediatria",
+   "cidade": "CURITIBA",
+   "end": "Rua Neuraci Neves do Nascimento, 106",
+   "bairro": "Santa Felicidade",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Adriane Castro de Souza Petrini",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 860 7 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Aldeia Cannara",
+   "cidade": "CURITIBA",
+   "end": "R Dona Alice Tibirica, 111",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Aliana R G Kohane",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 1846 Cj 811",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Alime Bakri Saude da Mulher S/S LTD",
+   "cidade": "CURITIBA",
+   "end": "R Emiliano Perneta, 860 Cj 1606 - 16 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Alto da Gloria Cons Med Associados",
+   "cidade": "CURITIBA",
+   "end": "Avenida Parana, 337 Sala 1002",
+   "bairro": "Cabral",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Amgiscor Cardiologia",
+   "cidade": "CURITIBA",
+   "end": "Rua Marechal Deodoro, 869 CJ 603 / Av Nossa Senhora Da Luz, 751 (só SulAmérica)",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ana e Ana Medicos Associados",
+   "cidade": "CURITIBA",
+   "end": "Rua Voluntarios da Patria 475, 475 4 Andar Sala 410",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ana Paula Baduy",
+   "cidade": "CURITIBA",
+   "end": "R Rua Comendador Araujo, 323 Cj 101",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Angiobatel",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369 CJ 1604, Andar 16",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Annapurna Clinica Medica Ltda",
+   "cidade": "CURITIBA",
+   "end": "R Bruno Filgueira, 369 12 Sala 1204",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Aramis de Castro Bach",
+   "cidade": "CURITIBA",
+   "end": "Avenida Silva Jardim, 4262",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Artro Clinica de Joelho e Ombro",
+   "cidade": "CURITIBA",
+   "end": "Avenida Vicente Machado, 2439",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "38237598|1-BATEL/CURITIBA/PR",
+     "nome": "ARTRO CLINICA ORTOPEDICA",
+     "end": "AV VICENTE MACHADO, 2411"
+    }
+   ]
+  },
+  {
+   "nome": "Bambini",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 5402 Conjunto 53 e 54",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Batel Consultorios Medicos",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4698 SL 201-",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "BF Servicos Medicos e Hospitalares Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Goias, 70 Loja 302 Andar 2 Con Eco Medical Center",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "BL Servicos Medicos SS",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4923 Sala 102",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Blue Therapy Reab Neuropsicomotora Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Monsenhor Celso, 211 Conj 204 Andar 02 Cond Pugsley Ed CD",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Bonalumi & Bonalumi",
+   "cidade": "CURITIBA",
+   "end": "Rua Carneiro Lobo, 570 Conjunto 1503",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Bonnevialle e Ruthes Medicos Associ",
+   "cidade": "CURITIBA",
+   "end": "Rua Treze de Maio, 825",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Bruno Scripes Wladeck",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido De Abreu, 526 Conjunto 803 Andar 8",
+   "bairro": "Centro Civico",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "C A O Cto Avan Otorrinolaringologia",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 6700",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Carlos Eurico Greca de Macedo",
+   "cidade": "CURITIBA",
+   "end": "Rua Presidente Rodrigo Otavio, 1976",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ceccon & Etzel",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4848 Conjunto 704 7 Andar",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cefor Centro da Face e Otorrino",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369 Sala 1001",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cemec",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 1445",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cent de Recuperacao Neurologica",
+   "cidade": "CURITIBA",
+   "end": "R Vereador Washington Mansur, 287",
+   "bairro": "Ahu",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cent Dia Clin Recuperacao Ltda",
+   "cidade": "CURITIBA",
+   "end": "R Otavio Pereira Dos Anjos, 454 Casa",
+   "bairro": "Jardim das Americas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Curitibano Visao Clinica Oftalmologica",
+   "cidade": "CURITIBA",
+   "end": "Rua Doutor Pedrosa, 151 5 Andar Sala 510",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro da Visao",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 680 CJ 101 - 1 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Check Up de Curitiba",
+   "cidade": "CURITIBA",
+   "end": "R Emiliano Perneta, 860 21 And",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Diabetes Curitiba Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Alcides Munhoz, 433",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Ortopedia e Fisioterapia Batel SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Jose Naves da Cunha, 51",
+   "bairro": "Seminario",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Reabilitacao Aquatica S/C Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Antonio Schiebel, 1406 Esquina",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Reabilitacao de Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Avenida dos Estados, 889",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Medico Anita",
+   "cidade": "CURITIBA",
+   "end": "Av Anita Garibaldi, 3842",
+   "bairro": "Barreirinha",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Medico Boqueirao",
+   "cidade": "CURITIBA",
+   "end": "R Napoleao Laureano, 800",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Medico Integrado",
+   "cidade": "CURITIBA",
+   "end": "Rua Reinaldino Schaffenberg de Quadros, 118",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Medico Lumen S/S",
+   "cidade": "CURITIBA",
+   "end": "Alameda Augusto Stellfeld, 1437",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Medico Marechal",
+   "cidade": "CURITIBA",
+   "end": "Av Marechal Floriano Peixoto, 8693 Sl 01",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Paranaense de Urologia",
+   "cidade": "CURITIBA",
+   "end": "Avenida Iguacu, 1236 Loja 01 Terreo",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro Pediatrico Curitibano",
+   "cidade": "CURITIBA",
+   "end": "Rua Vicente Machado, 467 Andar 7",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cevip Medicos Associados SS",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 665 14 Andar - Sala 1405",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ciep",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 6197",
+   "bairro": "Seminario",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cim Cic - Centro Integrado de Medi",
+   "cidade": "CURITIBA",
+   "end": "R Manoel Valdomiro De Macedo, 2851",
+   "bairro": "Cidade Industrial",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cirurgicare - Park Shopping Barigui",
+   "cidade": "CURITIBA",
+   "end": "R Professor Pedro Viriato Parigot De Souza, 600 Loja 3001-b",
+   "bairro": "Mossungue",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "CL Mult de Reab Neurologica Bepo Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Westphalen, 1572",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Claudia Valeria Ciuffi",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 L6",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cliam - Clinica de Atencao A Mulher",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 2454 CJ 201",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Climulti",
+   "cidade": "CURITIBA",
+   "end": "Al Princesa Izabel, 2526",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin de Dermat e Pneumol Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4214 Cj 1501",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin de Frat e Ortopedia Sao Marcos",
+   "cidade": "CURITIBA",
+   "end": "R Goncalves Dias, 507",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin de Uroginecologia SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Av Mal Floriano Peixoto, 50 Cj 201",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Dermatologica Geann de Bortoli",
+   "cidade": "CURITIBA",
+   "end": "Av Vicente Machado, 467 3 A Cj 34",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin DR Flavio Menoncin",
+   "cidade": "CURITIBA",
+   "end": "Av Visconde De Guarapuava, 3444 Cj 802",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Ecocor SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Westphalen, 594",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Gapski Moreira SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Trav Joao Turin, 37 3 And",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Madalozzo de Neurocirurgia",
+   "cidade": "CURITIBA",
+   "end": "Avenida Do Batel, 1230 Bloco B Sala 708",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Med Von Bahten Ltda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido De Abreu, 140 8 Andar Conjunto 801",
+   "bairro": "Centro Civico",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Med William Feres Ltda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 1336 Conj 714",
+   "bairro": "Vila Izabel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Saboia Onco Masto e Cir Plast",
+   "cidade": "CURITIBA",
+   "end": "R Visconde De Nacar, 656",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clini San",
+   "cidade": "CURITIBA",
+   "end": "Av Iguacu, 1676",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica da Psique",
+   "cidade": "CURITIBA",
+   "end": "Avenida Desembargador Hugo Simas, 1353 / Avenida Candido Hartmann, 570 Conj 252 Andar 16 (só Amil) / Rua Desembargador Isaias Bevilaqua, 875 (só Amil)",
+   "bairro": "Vista Alegre",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica da Voz e da Fala Marta Monica",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 1846 Conj 1201 Biocentro",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Cir Geral e Oftalmologia",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 Sl 504 505",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Doencas Renais",
+   "cidade": "CURITIBA",
+   "end": "Rua Coronel Herculano de Araujo, 412 / Avenida Vicente Machado, 2190 1 A Bloco 2 (só SulAmérica)",
+   "bairro": "Novo Mundo",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Fisioterapia Itupava",
+   "cidade": "CURITIBA",
+   "end": "Rua Da Paz, 195 Cj 15",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Fisioterapia Rio Branco",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Affonso Camargo, 4137",
+   "bairro": "Capao da Imbuia",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Fisioterapia Santa Isabel",
+   "cidade": "CURITIBA",
+   "end": "Rua Inacio Lustosa, 1174 Ap 1",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Fisioterapia Sao Francisco",
+   "cidade": "CURITIBA",
+   "end": "Avenida Frederico Lambertucci, 452",
+   "bairro": "Fazendinha",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Olhos DR Murilo Valladares",
+   "cidade": "CURITIBA",
+   "end": "Rua Republica Argentina, 2056 CJ 81,82,83",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Olhos Gulin",
+   "cidade": "CURITIBA",
+   "end": "Av Republica Argentina, 2150 Cj 52 5 Andar",
+   "bairro": "Portao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Olhos Miranda",
+   "cidade": "CURITIBA",
+   "end": "Rua Presidente Rodrigo Otavio, 1976",
+   "bairro": "Hugo Lange",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Ortopedia e Traumatologia Ubirajara Bley",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369 CJ 401",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Dermatologica M.s.tornesi",
+   "cidade": "CURITIBA",
+   "end": "Rua Comendador Araujo, 143 CJ 21 2 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica do Joelho",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 3066",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica DR Edison Fabri",
+   "cidade": "CURITIBA",
+   "end": "R Marechal Deodoro, 235 Sl 1408",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica DR Kleber Marques",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 5426 Conj 303 Andar 03 Co",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica DR Luis Duda",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 1846 CJ 204",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica DR. Pineroli",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 2151",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica e Cirurgia de Olhos Flores",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4214 CJ 1205",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Equilibrio",
+   "cidade": "CURITIBA",
+   "end": "Rua Equador, 195",
+   "bairro": "Bacacheri",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Garden Ouro",
+   "cidade": "CURITIBA",
+   "end": "Avenida Nossa Senhora Aparecida, 1138",
+   "bairro": "Seminario",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Graciosa Servicos Medicos SS",
+   "cidade": "CURITIBA",
+   "end": "Rua Professor Brandao, 1015",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Haddad de Dermatologia e Estetica",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 2348 8 Andar",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Hara Fisioterapia e Acupunt",
+   "cidade": "CURITIBA",
+   "end": "R Augusto Severo, 414",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Homeopata DR Waldemiro Pereira",
+   "cidade": "CURITIBA",
+   "end": "Rua Jose Loureiro, 11 SL 104, 1 And",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Integrada Equilibrio",
+   "cidade": "CURITIBA",
+   "end": "Avenida Marechal Floriano Peixoto, 9391 Loja 1 Cond Maoski",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Integrare",
+   "cidade": "CURITIBA",
+   "end": "Rua Joao Negrao, 380 SL 101 10 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica L Equilibre de Psico e Fono",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 3396 Imovel Comercial",
+   "bairro": "Portao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Marpy Pediatria",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 Cj 124",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Matheus Kowal Rosales",
+   "cidade": "CURITIBA",
+   "end": "R Tenente Miguel Anselmo Da Silva, 240",
+   "bairro": "Pilarzinho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Bem Viver",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Aristoxenes Bittencourt, 345",
+   "bairro": "Taruma",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Gondek",
+   "cidade": "CURITIBA",
+   "end": "R Desembargador Motta, 1499 Cj 404 - 4 Andar",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Kurahashi Melo",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 98 Sala 304",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Makino Montemezzo",
+   "cidade": "CURITIBA",
+   "end": "R Professor Pedro Viriato Parigot De Souza, 3901 Andar 4 Cj 44",
+   "bairro": "Cidade Industrial",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Medilocus",
+   "cidade": "CURITIBA",
+   "end": "Rua Conselheiro Araujo, 434 Sala 23 Andar 2",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica Meister",
+   "cidade": "CURITIBA",
+   "end": "Rua Capitao Souza Franco, 848 Conj. 41 - 4 Andar",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Millennium",
+   "cidade": "CURITIBA",
+   "end": "Rua Candido Xavier, 232",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Oftalmologica Hauer",
+   "cidade": "CURITIBA",
+   "end": "Rua Jose Peixoto De Lacerda Wernek, 41",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Psyque",
+   "cidade": "CURITIBA",
+   "end": "Rua Pedro Zagonel, 49 2 Andar - SL 21",
+   "bairro": "Novo Mundo",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Qali",
+   "cidade": "CURITIBA",
+   "end": "Avenida Manoel Ribas, 985 Sala 34 35",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Reintegrar",
+   "cidade": "CURITIBA",
+   "end": "Rua Amazonas, 1145",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Sao Joao Batista",
+   "cidade": "CURITIBA",
+   "end": "Rua Professor Joao Falarz, 1070 Casa 01",
+   "bairro": "Orleans",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Sao Luiz",
+   "cidade": "CURITIBA",
+   "end": "Al Doutor Carlos De Carvalho, 1087",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Schaefer",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 2932 Loja 01, Terreo",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Schmitz Rathunde",
+   "cidade": "CURITIBA",
+   "end": "Tv Itarare, 55 Conj 51",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Siria",
+   "cidade": "CURITIBA",
+   "end": "Av Republica Argentina, 1228 Andar 21 Sala 2106",
+   "bairro": "Vila Izabel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Temporal",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido de Abreu, 140 CJ 04 13 Andar",
+   "bairro": "Centro Civico",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Variclin de Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Rua da Paz, 195 CJ 319",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Vieira SS LT",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4848 Apto 1304",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Visao",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 Sl 123",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Vitavisao",
+   "cidade": "CURITIBA",
+   "end": "Rua Marechal Deodoro, 51 10 And. Conj.1009 A",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinicem Cto de Diag Hauer",
+   "cidade": "CURITIBA",
+   "end": "Rua Alcino Guanabara, 945",
+   "bairro": "Hauer",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinifisio",
+   "cidade": "CURITIBA",
+   "end": "Rua Francisco Rocha, 2084",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinimarc",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 1336 3 Andar",
+   "bairro": "Vila Izabel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinimed",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 680 CJ 1707 1708 17 And",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinisa Clinica de Saude Medica SS",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 Conj 125",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinivip",
+   "cidade": "CURITIBA",
+   "end": "Rua Pedro Gusso, 3492 / Rua Santa Catarina, 322",
+   "bairro": "Cidade Industrial",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinm Saude Integrada SS Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Jose Cadilhe, 255",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cmi - Centro Materno Infantil",
+   "cidade": "CURITIBA",
+   "end": "Rua Visconde do Rio Branco, 1630 CJ 702",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Coelho e Martins Servicos Medicos S",
+   "cidade": "CURITIBA",
+   "end": "R Teixeira Soares, 50",
+   "bairro": "Seminario",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Conceptkids Cen de Desen Infantil",
+   "cidade": "CURITIBA",
+   "end": "Av Dos Estados, 889",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cons Med Marcos Mattos Benetti",
+   "cidade": "CURITIBA",
+   "end": "R Mal Deodoro, 51 Sl 904 A",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Consult Med Juk Benke SS",
+   "cidade": "CURITIBA",
+   "end": "Rua Portugal, 351",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Consultorio de Oftalmologia Dra Neuza Yatiyo Honda e Medicos",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 680 CJ 303 e 304",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Consultorio Landal",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 1846 Sala 103",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Consultorio Medico e Cirurgico do Aparelho Digestivo",
+   "cidade": "CURITIBA",
+   "end": "Alameda Princesa Izabel, 1555",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Consultorio Medico Sinaida Haddad",
+   "cidade": "CURITIBA",
+   "end": "Rua Nicolau Maeder, 830",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cpaa Centro de Pesquisa e Avaliacao",
+   "cidade": "CURITIBA",
+   "end": "Rua Deputado Mario De Barros, 900 14 Andar",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cristiane de Fatima Lemos de Castro",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 2056 Conjunto 85 Andar 8",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "87027080|1-VL IZABEL/CURITIBA/PR",
+     "nome": "CRISTIANE D FATIMA L D C SILVA",
+     "end": "AV REPUBLICA ARGENTINA, 2056, SL 85"
+    }
+   ]
+  },
+  {
+   "nome": "Cta",
+   "cidade": "CURITIBA",
+   "end": "Rua Murilo do Amaral Ferreira, 643",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cta Centro Terapeutico Avancado Kids",
+   "cidade": "CURITIBA",
+   "end": "Rua Goias, 342",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cto Paranaense de Otorrino e Plasti",
+   "cidade": "CURITIBA",
+   "end": "Av Joao Gualberto, 1673 Sl 04",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "D Anlague Terapias Associadas",
+   "cidade": "CURITIBA",
+   "end": "R Bruno Filgueira, 369 3 Andar - Cj 302",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Debora Berbert Mocelin",
+   "cidade": "CURITIBA",
+   "end": "Joao Negrao, 380 4 Anda Sl 42",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Deguchi e de Paula Medicas Associadas SS",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Affonso Camargo, 1399 / Avenida Republica Argentina, 2275",
+   "bairro": "Cristo Rei",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Delta Saude",
+   "cidade": "CURITIBA",
+   "end": "Av Presidente Getulio Vargas, 593 Terreo",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Dermatologia Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Rua Herculano Carlos Franco De Souza, 362",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Dermoestetica",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 1846 Andar 10 Conj1014",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Detecta Avaliacao Auditiva",
+   "cidade": "CURITIBA",
+   "end": "Rua Acyr Guimaraes, 436 Conjunto 1705",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Detsch e Nakatani Ser Med Hosp S/S",
+   "cidade": "CURITIBA",
+   "end": "Al Doutor Carlos De Carvalho, 1087",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Digicentro Servicos Medicos S S",
+   "cidade": "CURITIBA",
+   "end": "R Portugal, 307 Sl 23 Ad 2",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Dipar Serv Diag Paranaense Soc Simp",
+   "cidade": "CURITIBA",
+   "end": "R Manoel Eufrasio, 403",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Dob Fedatto",
+   "cidade": "CURITIBA",
+   "end": "R Amintas De Barros, 574 Casa",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "DR Carlos Ortopedia Pediatrica e Escoliose",
+   "cidade": "CURITIBA",
+   "end": "Rua Goias, 70 LJ 401 3 Andar Cond Eco Medical Center",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eccos - Servicos Medicos",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4214 Sl 1707",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ecolab Lab de Ecocardiografia SC LT",
+   "cidade": "CURITIBA",
+   "end": "R Olavo Bilac, 181",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eden Luiz Colla",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4698 8 Andar-cj 808",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eduardo Egydio de Oliveira",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete De Setembro, 4848 Conjunto 301 5 A",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eduardo Erico Zen",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 Lj 1C",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eduardo Miranda",
+   "cidade": "CURITIBA",
+   "end": "Rua Presidente Rodrigo Otavio, 1976",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eduardo Silva Furtado",
+   "cidade": "CURITIBA",
+   "end": "R Nicolau Maeder, 34",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Eliana Caetano Silva Psicologia",
+   "cidade": "CURITIBA",
+   "end": "Avenida Winston Churchill, 1824 Conjunto 1307",
+   "bairro": "Capao Raso",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Elo Saude Mental",
+   "cidade": "CURITIBA",
+   "end": "Rua Vinte e Quatro de Maio, 1639 / Rua Irma Flavia Borlet, 215 (só Amil)",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Endocore",
+   "cidade": "CURITIBA",
+   "end": "Avenida Silva Jardim, 2600 Conjunto 1701",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Endogastro Clinica Medica S/S Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 860 1 O Andar Conjunto 1",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Endoneuro",
+   "cidade": "CURITIBA",
+   "end": "R Emiliano Perneta, 725 Sl 1103",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Endoskope Diagnosticos Endoscopicos",
+   "cidade": "CURITIBA",
+   "end": "R Itupava, 255",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Endrigo Monte Serrat Prevedello",
+   "cidade": "CURITIBA",
+   "end": "Avenida Parana, 1755 Sala 105",
+   "bairro": "Bacacheri",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Espaco Junior Centro Especializado em Autism",
+   "cidade": "CURITIBA",
+   "end": "Rua Euzebio da Motta, 37",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ester London",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 5011 Ed Tokyo - Andar Conj 504",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Evandro Seiti Vilar Oda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Victor Ferreira Do Amaral, 915",
+   "bairro": "Taruma",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "87027540|1-TARUMA/CURITIBA/PR",
+     "nome": "EVANDRO SEITI VILAR ODA",
+     "end": "AV VICTOR F DO AMARAL, 915"
+    }
+   ]
+  },
+  {
+   "nome": "Fagundes e Obrali Medicos Associado",
+   "cidade": "CURITIBA",
+   "end": "R Da Paz, 195 1 Andar Conj 116",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fernando Cesar Abib",
+   "cidade": "CURITIBA",
+   "end": "Avenida Joao Gualberto, 1881 Andar 7",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ferraz Faria Ortopedia",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4214 Ad 9 Cj 1009",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ferreira Servicos de Fisioterapia S",
+   "cidade": "CURITIBA",
+   "end": "Rua Alberto Folloni, 1093 Vitalclin",
+   "bairro": "Ahu",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fisioform",
+   "cidade": "CURITIBA",
+   "end": "R Carlos Augusto Cornelsen, 321",
+   "bairro": "Bom Retiro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fisionorte",
+   "cidade": "CURITIBA",
+   "end": "Avenida Parana, 1253",
+   "bairro": "Cabral",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Flavia do Rocio Follador",
+   "cidade": "CURITIBA",
+   "end": "R Conselheiro Dantas, 599",
+   "bairro": "Prado Velho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Flavia Ferreira Sguario Szucs",
+   "cidade": "CURITIBA",
+   "end": "Rua Alferes Angelo Sampaio, 1118 Conj. 53",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Flavio Vieira Studart Gomes",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369 Andar 16, Sala 1602",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fraturas Portao",
+   "cidade": "CURITIBA",
+   "end": "Rua Santa Catarina, 322",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fundacao Pro-hansen",
+   "cidade": "CURITIBA",
+   "end": "Rua Fernando Amaro, 1116",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Gastro Vida",
+   "cidade": "CURITIBA",
+   "end": "R Alcides Munhoz, 433 2o Andar",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Gonzalez Servicos Medicos Ltda Me",
+   "cidade": "CURITIBA",
+   "end": "R Paraguassu, 853 Terreo",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Guilherme Augusto Rolim de Moura",
+   "cidade": "CURITIBA",
+   "end": "Av Joao Gualberto, 1881 Sala 801",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Gyneclin SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Vicente Machado, 401",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Happykids Centro de Reabilitacao",
+   "cidade": "CURITIBA",
+   "end": "Rua Manoel Valdomiro de Macedo, 2931",
+   "bairro": "Cidade Industrial",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "I S Ginecologia e Obstetricia Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Tijucas do Sul, 611",
+   "bairro": "Sitio Cercado",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Idepi Instituto de Diagnosticos Especializados Por Imagem",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4848 Comercio 02, Andar Terreo, CJ 101/104 e 205/206",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Imo",
+   "cidade": "CURITIBA",
+   "end": "Rua Herculano Carlos Franco De Souza, 438",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Imv Instituto de Molestias Vasculares",
+   "cidade": "CURITIBA",
+   "end": "Alameda Princesa Izabel, 1821",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Incigap",
+   "cidade": "CURITIBA",
+   "end": "Travessa Ferreira do Amaral, 45 Andar 3",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Incor Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Alameda Doutor Carlos de Carvalho, 2370",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "39105690|1-AGUA VERDE/CURITIBA/PR",
+     "nome": "INCORPORE",
+     "end": "R GOIAS - ATE 579/580, 70, LJ 302 AND 2"
+    },
+    {
+     "id": "72130063|1-JD AMERICAS/CURITIBA/PR",
+     "nome": "INCORP",
+     "end": "R ALMIR T DE OLIVEIRA, 48"
+    }
+   ]
+  },
+  {
+   "nome": "Inst Med Flumignano",
+   "cidade": "CURITIBA",
+   "end": "Rua Atilio Borio, 711 Casa",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Inst Otorrino Oftalmo",
+   "cidade": "CURITIBA",
+   "end": "Av Silva Jardim, 4271",
+   "bairro": "Seminario",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Inst Terapeutico de Curitiba SC LTD",
+   "cidade": "CURITIBA",
+   "end": "R Mauricio Caillet, 77",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto de Joelho e Ombro",
+   "cidade": "CURITIBA",
+   "end": "Avenida Silva Jardim, 4228",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto do Sono de Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4923 SL 102",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "92327799|1-S FRANCISCO/CURITIBA/PR",
+     "nome": "CLINICA DO SONO DE CURITIBA",
+     "end": "R SEN XAVIER DA SILVA, 488, 801/A"
+    }
+   ]
+  },
+  {
+   "nome": "Instituto Graefe de Oftalmologia",
+   "cidade": "CURITIBA",
+   "end": "R Capitao Souza Franco, 95",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto Halsted",
+   "cidade": "CURITIBA",
+   "end": "Rua Doutor Roberto Barrozo, 1379",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto Mobilitat Clinica Medica",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 2348 Sala 1702",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Intervcard Procedimentos Medicos",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 2201",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ipc",
+   "cidade": "CURITIBA",
+   "end": "Rua Silveira Peixoto, 1040 Salas 1601/1602/1605 16 Andar",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Isidoro C Stanischesk",
+   "cidade": "CURITIBA",
+   "end": "R Itupava, 701",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ivan Maluf",
+   "cidade": "CURITIBA",
+   "end": "Rua Riachuelo, 27 Conj 1101",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Jacobovicz Consultorio Med Ltda Me",
+   "cidade": "CURITIBA",
+   "end": "Rua Portugal, 307 2 Andar",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Jose Marcos Lanzoni",
+   "cidade": "CURITIBA",
+   "end": "Rua Marechal Deodoro, 450 CJ 305 - 3 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Julio Siqueira Pierin Siqueira",
+   "cidade": "CURITIBA",
+   "end": "R Marechal Deodoro, 630 3 Andar Conj 301",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Le Petit Clinica Pediatrica",
+   "cidade": "CURITIBA",
+   "end": "Avenida Do Batel, 1230 Bloco 2 Conjunto 612",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Leo Francisco Leone Junior",
+   "cidade": "CURITIBA",
+   "end": "Avenida Av Vicente Machado, 2035 Batel -",
+   "bairro": "Campina do Siqueira",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Louriene Calixtro Clinica Psicologica",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 1336 14 Andar Sala 1402",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Loyola & Avellar S/S",
+   "cidade": "CURITIBA",
+   "end": "Av Candido Hartmann, 570 Conj.121 Andar3",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Luciane & Bolcato Ltda",
+   "cidade": "CURITIBA",
+   "end": "R Emiliano Perneta, 860 Conj 1706 Andar 17",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Luciano Carneiro Stunitz",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4615 CJ 1703 17 And",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Luiz Antonio de Barros",
+   "cidade": "CURITIBA",
+   "end": "R Voluntarios Da Patria, 400 Cj 902 - 9° Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "150002363|1-CENTRO/CURITIBA/PR",
+     "nome": "LUIZ ANTONIO DE BARROS",
+     "end": "R VLTOS DA PATRIA, 400, 902"
+    }
+   ]
+  },
+  {
+   "nome": "Luminere Clinica de Servicos Medicos",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4848 Conj 604 Andar 06 Cond Batel Office Place e",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Marcelo de Paula Loureiro",
+   "cidade": "CURITIBA",
+   "end": "Rua Jeremias Maciel Perretto, 300 1 Andar",
+   "bairro": "Campo Comprido",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Marco Antonio Santini Canto",
+   "cidade": "CURITIBA",
+   "end": "Rua Voluntarios da Patria, 400 2 Andar 201 / Avenida Sete de Setembro, 6695 (só Amil) / Rua Padre Germano Mayer, 1818 (só Amil)",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Marcos Rainer Gunther",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 5402 Andar 9 Cjto 96",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Maria Isabel Bora Castaldo Andrade",
+   "cidade": "CURITIBA",
+   "end": "Rua Vicente Machado, 467 8 Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Marianne de Paula Soares Guimaraes",
+   "cidade": "CURITIBA",
+   "end": "Rua Jacarezinho, 258",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Maternal Clinica e Vacinas",
+   "cidade": "CURITIBA",
+   "end": "Rua Alcides Munhoz, 544",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Mauricio Maica de Oliveira Eireli",
+   "cidade": "CURITIBA",
+   "end": "Rua Doutor Raul Carneiro Filho, 328",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Medcentro",
+   "cidade": "CURITIBA",
+   "end": "Rua Voluntarios da Patria, 400 Conj 102",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Medicall Clinica Ltda",
+   "cidade": "CURITIBA",
+   "end": "Avenida Vicente Machado, 2439 (só Amil) / Avenida Republica Argentina, 1228 26 Andar (só SulAmérica)",
+   "bairro": "Campina do Siqueira",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Medsena Clin Medica e Cirurgica LTD",
+   "cidade": "CURITIBA",
+   "end": "Avenida Vicente Machado, 320 7 And Cj 702",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Mellitus Clinica de Endocrinologia e Diabetes Sociedade Simp",
+   "cidade": "CURITIBA",
+   "end": "Rua Joao Negrao, 731 Andar 24 Sala 2406",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Michele Agostini Buquera Giublin",
+   "cidade": "CURITIBA",
+   "end": "Rua Atilio Borio, 608",
+   "bairro": "Cristo Rei",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Mixmed Servicos Medicos S/S",
+   "cidade": "CURITIBA",
+   "end": "Av Do Batel, 1230 Cj 307 Andar 3 Bl 1",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Nakadomari Servicos Medicos Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 2050 Sala 1412",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Nefrokids",
+   "cidade": "CURITIBA",
+   "end": "Rua Almirante Goncalves, 2111",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neo Nucleo Estudos Oncologicos",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Costa Carvalho, 90 Casa",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neuro 7 Clinica de Neurologia e Dor de Cabeca",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369 SL 1603",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neuro Instituto Forel",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Antonio, 360",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neuroex Instituto de Neurologia Ltda",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 22 Apt 202",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neurofaz Reab e Desen Neurologico",
+   "cidade": "CURITIBA",
+   "end": "Av Marechal Floriano Peixoto, 6349 - De 4547 A 6529 - L",
+   "bairro": "Hauer",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neuromed Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Rua Santa Catarina, 65 CJ 803 Andar 08 Cond Spatium Laboris Ed C BL Spatium Laboris",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "NK Servicos de Fisioterapia Ltda",
+   "cidade": "CURITIBA",
+   "end": "Av Republica Argentina, 151 Loja 01",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Nucleo Otorrinol e Fonodiaul SC LTD",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido De Abreu, 526 Conj 911 09a",
+   "bairro": "Centro Civico",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "NW Neuro e Neurofis Clinica Ltda",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 2050 Sala 1412",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Obepar",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 1505 4Âº Andar Sala 414",
+   "bairro": "Vila Izabel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Oftalmolaser Luiz Antonio Lipinski",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 424 5 Andar D",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Oftalmopar Clin Oftalmol Paranaense",
+   "cidade": "CURITIBA",
+   "end": "R Emiliano Perneta, 680 Cj 1401 A 1405",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Oftalmoplastica Clin e Cirurgia de Olhos",
+   "cidade": "CURITIBA",
+   "end": "Rua Ubaldino do Amaral, 188",
+   "bairro": "Alto da Gloria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Oliveira e Tagliari Med Associados",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 1846 Cj 802",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ombro DK & Cia Servicos Medicos S/S",
+   "cidade": "CURITIBA",
+   "end": "Av Iguacu, 1236 Sala 108",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Opus Salutis Clin Med SC Ltda",
+   "cidade": "CURITIBA",
+   "end": "Av Vicente Machado, 467 2 And - Sl 23",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ortho Spine Institut",
+   "cidade": "CURITIBA",
+   "end": "Rua General Mario Tourinho, 1746 Sala 901 Andar 09",
+   "bairro": "Campina do Siqueira",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ortopedia Schiavon",
+   "cidade": "CURITIBA",
+   "end": "R Padre Germano Mayer, 2258",
+   "bairro": "Alto da Rua XV",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Paulo Cesar Andriguetto",
+   "cidade": "CURITIBA",
+   "end": "Rua Bruno Filgueira, 369",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Pediatria - da Matta & Garcia",
+   "cidade": "CURITIBA",
+   "end": "Av Republica Argentina, 4949",
+   "bairro": "Novo Mundo",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Pedro Caron Medico",
+   "cidade": "CURITIBA",
+   "end": "R Goias, 70 Loja 502 Andar 4",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Peleclin",
+   "cidade": "CURITIBA",
+   "end": "R Visconde Do Rio Branco, 1358 Sala 805/806",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Pmed Servicos Medicos SS Ltda",
+   "cidade": "CURITIBA",
+   "end": "Av Republica Argentina, 210 Conj 405 4 Andar",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Policlinica Joana D'arc",
+   "cidade": "CURITIBA",
+   "end": "Rua Prfa Ana de Oliveira Viana, 301",
+   "bairro": "Fanny",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Policlinica Pinheirinho",
+   "cidade": "CURITIBA",
+   "end": "Avenida Winston Churchill, 1972 1 Andar",
+   "bairro": "Capao Raso",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Policlinica Sao Marcos",
+   "cidade": "CURITIBA",
+   "end": "Avenida Winston Churchill, 1323",
+   "bairro": "Capao Raso",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Prime Cor",
+   "cidade": "CURITIBA",
+   "end": "Rua Emiliano Perneta, 860 Conjunto 1501 1506",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Probem Psicologia CL e Saude Mental",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete De Setembro, 5388 Sala 1603 1604 2002",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Proftal Oftalmologia S S",
+   "cidade": "CURITIBA",
+   "end": "R Comendador Araujo, 510 Cj 401 e 403",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Rafaela Perraro Sanderson Serv Med",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 2050 Sala 1412",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ricardo J L Ribeiro",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido Hartmann, 570 Sala 253",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ricardo Salfer Schwarz",
+   "cidade": "CURITIBA",
+   "end": "Rua Alferes Poli, 405 CJ 701",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Roberto Gomes de Carvalho",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 1923 Conj 1704",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Rocha e Vanzin Medicos Associados",
+   "cidade": "CURITIBA",
+   "end": "Rua Emilio de Menezes, 641",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Rogerio Schwabe",
+   "cidade": "CURITIBA",
+   "end": "R Mal Deodoro, 51 Cj 1205 12 And",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "S V Condicionamento Fisico e Fisioterapia",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 2500 LJ 4",
+   "bairro": "Portao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Samia Ali Wahab",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4476 Conj. 1101",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Samir Haurani",
+   "cidade": "CURITIBA",
+   "end": "Av Mal Floriano Peixoto, 10216 Sl 01 / Pca Do Carmo, 59 / R Emiliano Perneta, 466 5o Andar Sl 507",
+   "bairro": "Boqueirao",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Santa Cruz - Centro Medico",
+   "cidade": "CURITIBA",
+   "end": "Av Do Batel, 1898 Sl 02 Andar 02 Cond",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "150008132|1-BATEL/CURITIBA/PR",
+     "nome": "HOSPITAL SANTA CRUZ",
+     "end": "AV DO BATEL, 1889"
+    },
+    {
+     "id": "39152383|1-PAROLIN/CURITIBA/PR",
+     "nome": "LABORATORIO SANTA CRUZ",
+     "end": "AV MAL FLORIANO PEIXOTO, 3969"
+    }
+   ]
+  },
+  {
+   "nome": "Saulo Carvalho Filho e Miriam M Carvalho",
+   "cidade": "CURITIBA",
+   "end": "Rua Bom Jesus, 212 Sala 805 Andar 08 Co",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Schmidt & Xavier Serv Medicos",
+   "cidade": "CURITIBA",
+   "end": "Rua Carneiro Lobo, 468 Conjunto 1201",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Simone Maria Niemczyk Brito Psicologa",
+   "cidade": "CURITIBA",
+   "end": "Rua Recife, 143 Loja 01",
+   "bairro": "Cabral",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Skrobot Servicos Medicos Eireli",
+   "cidade": "CURITIBA",
+   "end": "Av Iguacu, 1236 Andar 1 Sala 114",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Stenio Lujan Camacho",
+   "cidade": "CURITIBA",
+   "end": "Rua Padre Anchieta, 1846 8 Andar - Conj 801",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Suely Brofman",
+   "cidade": "CURITIBA",
+   "end": "Rua da Paz, 195",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Surdi Clinica Medica",
+   "cidade": "CURITIBA",
+   "end": "Avenida Candido de Abreu, 660 CJ 1902 - 19 Andar - Ed Palladion",
+   "bairro": "Centro Civico",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "SV Med Clinica de Servicos Medicos",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 5001",
+   "bairro": "Novo Mundo",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Tempo Medicina de Familia",
+   "cidade": "CURITIBA",
+   "end": "Rua Gastao Camara, 242 *** / Rua Atendimento Exclusivo On-line, Atendimento Exclusivo On-line (só Amil)",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Trilhas Servicos Terapeuticos",
+   "cidade": "CURITIBA",
+   "end": "R Buenos Aires, 441 Cj 24",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Turbay Servicos Medicos Eireli",
+   "cidade": "CURITIBA",
+   "end": "Avenida Presidente Getulio Vargas, 2932 Conj 1204 Andar 12",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Unicardios Unid de Atend do Coracao",
+   "cidade": "CURITIBA",
+   "end": "Alameda Augusto Stellfeld, 2088",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Unineo Curitiba",
+   "cidade": "CURITIBA",
+   "end": "R Joao Antonio Xavier, 1001",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Urocentro",
+   "cidade": "CURITIBA",
+   "end": "Rua Portugal, 329 Segunda Entrada N 307",
+   "bairro": "Sao Francisco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Uroville Servicos Medicos S S",
+   "cidade": "CURITIBA",
+   "end": "Rua Doutor Brasilio Vicente de Castro, 111 Sala 302",
+   "bairro": "Campo Comprido",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Vanoli & Vanoli",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 1336 Conj 1813 And 18",
+   "bairro": "Vila Izabel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "VG Servicos Medicos",
+   "cidade": "CURITIBA",
+   "end": "Rua Sao Vicente, 55 Casa",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Victor Bregola",
+   "cidade": "CURITIBA",
+   "end": "Avenida Joao Gualberto, 1881 5Âº Andar Sala 501",
+   "bairro": "Juveve",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Viviane Andri Colla",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4698 8 And Cj 808",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "87019885|1-BATEL/CURITIBA/PR",
+     "nome": "VIVIANE ANDRI COLLA",
+     "end": "AV SETE DE SETEMBRO, 4698, 808"
+    }
+   ]
+  },
+  {
+   "nome": "Wagner Aparecido Barbosa Dias",
+   "cidade": "CURITIBA",
+   "end": "Avenida Visconde de Guarapuava, 2764",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Waldecir Vedoato",
+   "cidade": "CURITIBA",
+   "end": "Rua Visconde do Rio Branco, 560",
+   "bairro": "Merces",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Wave Medicina Fetal",
+   "cidade": "CURITIBA",
+   "end": "Avenida Sete de Setembro, 4682 Sla1001 Andar 13",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Way Servicos Medicos Ltda Epp",
+   "cidade": "CURITIBA",
+   "end": "R Padre Anchieta, 1846 3 A Sl 309",
+   "bairro": "Bigorrilho",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Wiederkher Medicos Associados",
+   "cidade": "CURITIBA",
+   "end": "Avenida Visconde De Guarapuava, 4628 3 Andar Sala 312",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Zabot - Ginec e Obst",
+   "cidade": "CURITIBA",
+   "end": "Av Sete De Setembro, 4923 Conj 1001",
+   "bairro": "Batel",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Video Endoscopia Iguacu",
+   "cidade": "CURITIBA",
+   "end": "Avenida Iguacu, 1236",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cimap",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Hugo Simas, 322 Andar 5",
+   "bairro": "Bom Retiro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "CNC - Cardiologia Nuclear Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Avenida Desembargador Hugo Simas, 322",
+   "bairro": "Bom Retiro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Coraacao",
+   "cidade": "CURITIBA",
+   "end": "Avenida Desembargador Hugo Simas, 322",
+   "bairro": "Bom Retiro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Examinare",
+   "cidade": "CURITIBA",
+   "end": "Rua Guilherme Pugsley, 1705",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Labcen Laboratorio Central de Pinhais",
+   "cidade": "CURITIBA",
+   "end": "Rua Ebano Pereira, 60 17 Andar Conjunto 1701 / Rua Padre Germano Mayer, 1081 / Rua Reinaldino Schaffenberg de Quadros, 118",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laboratorio Annalab",
+   "cidade": "CURITIBA",
+   "end": "Rua Voluntarios da Patria, 233 Conj 23,24,25,26 e 27",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laboratorio de Analises Clinicas Sugisawa",
+   "cidade": "CURITIBA",
+   "end": "Avenida Iguacu, 1186",
+   "bairro": "Reboucas",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laboratorio Sao Lucas",
+   "cidade": "CURITIBA",
+   "end": "Avenida Munhoz da Rocha, 63",
+   "bairro": "Cabral",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Mario Cesar Vieira",
+   "cidade": "CURITIBA",
+   "end": "Rua Desembargador Motta, 1070",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Neuro Mio",
+   "cidade": "CURITIBA",
+   "end": "Rua Euclides Bandeira, 2056",
+   "bairro": "Ahu",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Patologia Humana Diagnostico e Pesquisa",
+   "cidade": "CURITIBA",
+   "end": "Rua Albano Reis, 685",
+   "bairro": "Bom Retiro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Patologistas Associados",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 50 14 Andar, CJ 141 e 142",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Alessandro Gomes Schuffner",
+   "cidade": "CURITIBA",
+   "end": "Avenida Republica Argentina, 210 17 Andar",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Angiolab Lab Vascular Nao Invasivo",
+   "cidade": "CURITIBA",
+   "end": "Rua da Paz, 195 Terreo Sala 2",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cedo Diagnostico Por Imagem",
+   "cidade": "CURITIBA",
+   "end": "Rua Benjamin Constant, 000608",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Ecografia Curitiba",
+   "cidade": "CURITIBA",
+   "end": "Rua Joao Antonio Xavier, 1001",
+   "bairro": "Agua Verde",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Diagnoson Diagnostico Por Imagem",
+   "cidade": "CURITIBA",
+   "end": "Rua Voluntarios da Patria, 400 CJ 1302",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Instituto de Roentgendiagnostico",
+   "cidade": "CURITIBA",
+   "end": "Rua Marechal Deodoro, 503 13o And CJ 1304",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Prolab Cent Diag Cardiologico",
+   "cidade": "CURITIBA",
+   "end": "Rua Professor Pedro Viriato Parigot De Souza, 600",
+   "bairro": "Mossungue",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Amil Espaco Saude Sao Jose dos Pinhais",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Sete de Setembro, 190",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Angimedi Clin Medica",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Av Das Americas, 737",
+   "bairro": "Cidade Jardim",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Brito Pediatria",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Jorge Mansos do Nascimento Teixeira, 221 Sala 13",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Casulo Neurodesenvolvimento Infantil",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Sao Pedro do Ivai, 393",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Centro de Desenvolvimento Humano Planetarium Ltda",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Doutor Murici, 5411",
+   "bairro": "Costeira",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cerne",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Nelson Basso, 50",
+   "bairro": "Bom Jesus",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cim Sao Jose dos Pinhais - Cent Int",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Voluntarios Da Patria, 300",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Pediatrica Amorim Pereira",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Joao Angelo Cordeiro, 500 4 And - Sl 41",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Cardiokinder",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Joao Angelo Cordeiro, 500 Sala 34",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Olhos Oftalmo Brasil S/S",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Alcidio Viana, 1001 Sala 503",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica de Olhos Sao Jose",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Marcelino Nogueira, 580 4 And Sl 19",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "37429831|1-CENTRO/SAO JOSE DOS PINHAIS/PR",
+     "nome": "CTO DE OLHOS SAO JOSE DOS PINHAIS",
+     "end": "R TEN DJALMA DUTRA, 686, SL 03"
+    },
+    {
+     "id": "37436512|1-CENTRO/SAO JOSE DOS PINHAIS/PR",
+     "nome": "INST OLHOS S J DOS PINHAIS",
+     "end": "R IZABEL A REDENTORA, 2356, SALAS 111 E 112"
+    }
+   ]
+  },
+  {
+   "nome": "Clinica Integrare SJP",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Paulino de Siqueira Cortes, 1570",
+   "bairro": "Silveira da Motta",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Semaer",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Joao Angelo Cordeiro, 500",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Vitavisao",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Voluntarios Da Patria, 1046",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinicas Integradas Sao Jose",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Paulino Siqueira Cortes, 2175 Centro",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Debora Caroline Zielonka da Silva",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Doutor Marcelino Nogueira, 580 Sala 03",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Equilibrio Clinica de Fisioterapia",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Paulino de Siqueira Cortes, 2520 Casa Frente",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Felipe S D Alves V dos Santos Ltda",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Paulino de Siqueira Cortes, 2175",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Gabriel Treml Murara e Medicos Asso",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Alcidio Viana, 916 Sala 705",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Inst do Aparelho Digestivo",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Joao Angelo Cordeiro, 572",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Le Petit Clinica Pediatrica",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "R Izabel A Redentora, 2356 Sala 107 - 10o Andar",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Marinoski Servicos Medicos",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Alcidio Viana, 837 CJ 708 e 709",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": [
+    {
+     "id": "87021871|1-S PEDRO/SAO JOSE DOS PINHAIS/PR",
+     "nome": "JANAINA NUNES KRUPP MARINOSKI",
+     "end": "R ALCIDIO VIANA, 837, 401"
+    }
+   ]
+  },
+  {
+   "nome": "Nuttrir",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Alcidio Viana, 837b Ed Galeno Sl 508",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Citopat",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Alcidio Viana, 837 Sala 803",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ipo - Hospital Paranaense de Otorrino",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua General Catao Menna Barreto Monclaro, 426",
+   "bairro": "Sao Pedro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laboratorio de Analises Clinicas Sao Jose",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Almirante Alexandrino, 2039 / Rua Joao Angelo Cordeiro, 882",
+   "bairro": "Afonso Pena",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cedip Curitiba",
+   "cidade": "SAO JOSE DOS PINHAIS",
+   "end": "Rua Izabel A Redentora, 1434",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Hosp e Mat Sao Lucas de Campo Largo",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Generoso Marques, 2022",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Olhos DR Clayton Joao Vidal",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Monsenhor Aluisio Domanski, 23 Sobreloja Loja",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clin Ped Werner & Werner S/S Ltda",
+   "cidade": "CAMPO LARGO",
+   "end": "Avenida Padre Natal Pigatto, 781",
+   "bairro": "Vila Bancaria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Ideale",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Santos Dumont, 888",
+   "bairro": "Vila Operaria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Medica e Reumatologica Ercole",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Benedito Soares Pinto, 2123",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Sagrada Familia",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Dom Pedro Ii, 1070 A",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Santo Anjo",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Generoso Marques, 337",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fisioclass Clinica de Fisioterapia",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Professor Joao Batista Valoes, 715",
+   "bairro": "Vila Operaria",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "GV Medicina",
+   "cidade": "CAMPO LARGO",
+   "end": "Rua Rui Barbosa, 868 Andar 1",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Ifo-instituto de Fisioteraria Ortop",
+   "cidade": "CAMPO LARGO",
+   "end": "R Barao Do Rio Branco, 1443 Sala 02",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Proemi Neuro Reabilitacao Neurologi",
+   "cidade": "CAMPO LARGO",
+   "end": "R Rua Benedito Soares Pinto, 1729",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cimad Centro de Imagem Diagnostica",
+   "cidade": "CAMPO LARGO",
+   "end": "R Domingos Cordeiro, 1223 - Ate 1299/1300",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fisio Corpus Fisioterapia",
+   "cidade": "COLOMBO",
+   "end": "Rua Francisco Camargo, 274",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Keila Rodrigues Andrade Psicologia",
+   "cidade": "COLOMBO",
+   "end": "Rua Cascavel, 346 Sala 02",
+   "bairro": "Guaraituba",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "NK Servicos de Fisioterapia Ltda",
+   "cidade": "COLOMBO",
+   "end": "R Paschoa Lazarotto Toniolo, 1502",
+   "bairro": "Fatima",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Plural Med Servicos Medicos",
+   "cidade": "COLOMBO",
+   "end": "Rua Dorval Ceccon, 525",
+   "bairro": "Fatima",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Torres Oftalmologia",
+   "cidade": "COLOMBO",
+   "end": "Rua Arquimedes, 166 Sala 5",
+   "bairro": "Maracana",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Citomed",
+   "cidade": "COLOMBO",
+   "end": "Rua Jose Leal Fontoura, 233 Sala 6",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laban Laboratorio de Analises Clinicas",
+   "cidade": "COLOMBO",
+   "end": "Rua Prefeito Pio Alberti, 555 Slj1",
+   "bairro": "Osasco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Labcen Laboratorio Central de Pinhais",
+   "cidade": "COLOMBO",
+   "end": "Avenida Marginal Jose de Anchieta, 1440",
+   "bairro": "Guarani",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Lanac-laboratorio de Analises Clinicas",
+   "cidade": "COLOMBO",
+   "end": "Rua Odonis Bighi, 53",
+   "bairro": "Osasco",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Cim Araucaria - Cent Integ de Med",
+   "cidade": "ARAUCARIA",
+   "end": "R Manoel Ribas, 100 Lj 2",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Davita",
+   "cidade": "ARAUCARIA",
+   "end": "Av Archelau De Almeida Torres, 2141",
+   "bairro": "Costeira",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Innovare",
+   "cidade": "ARAUCARIA",
+   "end": "Av Doutor Victor Do Amaral, 1217 Sobreloja",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "PMP Fisioclinica - Patricia Moreira Paes",
+   "cidade": "ARAUCARIA",
+   "end": "Avenida Doutor Victor do Amaral, 1201 Casa",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Frischmann Aisengart Med Diagnostica",
+   "cidade": "ARAUCARIA",
+   "end": "Rua Professor Alfredo Parodi, 143",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Camati Pimentel Fisioterapia e Condicionamento Fisico",
+   "cidade": "PINHAIS",
+   "end": "Rua Vinte e Quatro de Maio, 627",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Ciranda",
+   "cidade": "PINHAIS",
+   "end": "R Uniflor, 940",
+   "bairro": "Emiliano Perneta",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Citomed",
+   "cidade": "PINHAIS",
+   "end": "Avenida Juriti, 166",
+   "bairro": "Jardim Claudia",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Diagnosticos da America Sa",
+   "cidade": "PINHAIS",
+   "end": "Av Jacob Macanhan, 569",
+   "bairro": "Emiliano Perneta",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinifaz",
+   "cidade": "FAZENDA RIO GRANDE",
+   "end": "Rua Inglaterra, 352 LJ 02",
+   "bairro": "Nacoes",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Oftalmoclinica Fazenda",
+   "cidade": "FAZENDA RIO GRANDE",
+   "end": "Rua Jacaranda, 82 Sala 13 14 15 e 19",
+   "bairro": "Nacoes",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Campmed",
+   "cidade": "CAMPINA GRANDE DO SUL",
+   "end": "Rua Professor Duilio Calderari, 1385 Lote 06 Quadra 28",
+   "bairro": "Jardim Paulista",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Fonoconect Fonoaudiologia Especializada",
+   "cidade": "CAMPINA GRANDE DO SUL",
+   "end": "Avenida Presidente Juscelino Kubitschek de Oliveira, 242",
+   "bairro": "Jardim Paulista",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Citomed",
+   "cidade": "CAMPINA GRANDE DO SUL",
+   "end": "Avenida Augusto Estaben, 1473 Sala 2 / Rua Augusto Staben, 1473",
+   "bairro": "Jardim Paulista",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laban Laboratorio de Analises Clinicas",
+   "cidade": "CAMPINA GRANDE DO SUL",
+   "end": "Rua Professora Nilce Terezinha Zanetti, 1443",
+   "bairro": "Jardim Paulista",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Clinica Luzerna",
+   "cidade": "PIRAQUARA",
+   "end": "Travessa Deodoro, 29",
+   "bairro": "Planta Santo Antonio",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Lanac-laboratorio de Analises Clinicas",
+   "cidade": "PIRAQUARA",
+   "end": "Rua Carlos Belao, 148",
+   "bairro": "Vila Juliana",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Espaco Integrar",
+   "cidade": "LAPA",
+   "end": "Rua Marechal Floriano Peixoto, 131",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Laboratorio Volpi e Biancardi - Lapa",
+   "cidade": "LAPA",
+   "end": "Rua Francisco Braga, 229",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "Citomed",
+   "cidade": "QUATRO BARRAS",
+   "end": "Avenida Sao Sebastiao, 314",
+   "bairro": "Centro",
+   "origem": "comparativo",
+   "achados": []
+  },
+  {
+   "nome": "CHRISTIANE MARIA RIBAS",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "buscador"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CLODOALDO TURBAY BRAGA",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "buscador"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "MARCOS CESAR AMARAL PATRUNI",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "buscador"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "RAUL CLOVIS DE ARAUJO SANTOS",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "buscador"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CEDICOR",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CLINIMARC",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "VILA IZABEL",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "LAB ANAL CLINICAS NACOES",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "AT RUA XV",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "WANDERLEI CARNEIRO",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "BIGORRILHO",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CL DIAG P IMAGEM PACIORNIK",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CLIN PARANAENSE RADIOLOGIA",
+   "cidade": "CURITIBA",
+   "end": "",
+   "bairro": "CENTRO",
+   "origem": "base anterior",
+   "fonte": [
+    "laboratorios"
+   ],
+   "achados": []
+  },
+  {
+   "nome": "CENTRO DE TRATAMENTO CLEUZA CANAN",
+   "cidade": "PIRAQUARA",
+   "end": "",
+   "bairro": "JARDIM DIGUIMABRI",
+   "origem": "base anterior",
+   "fonte": [
+    "buscador"
+   ],
+   "achados": []
+  }
+ ]
+}

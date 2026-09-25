@@ -214,9 +214,12 @@ def main():
             fora_da_busca += 1
         # a base antiga tinha cidades repetidas com outra grafia ("BIRITIBA-MIRIM"
         # e "BIRITIBA MIRIM"): viram uma so, sem repetir prestador
-        vistos = {(r[3][0] if r[6][2] != 2 else (r[0], r[2])) for r in por_cidade.get(c, [])}
+        # (o mesmo prestador em dois enderecos da cidade sao duas linhas: a varredura de
+        # detalhe traz um item por endereco)
+        vistos = {((r[3][0], r[7][0]) if r[6][2] != 2 else (r[0], r[2]))
+                  for r in por_cidade.get(c, [])}
         for r in linhas:
-            chave_r = r[3][0] if r[6][2] != 2 else (r[0], r[2])
+            chave_r = (r[3][0], r[7][0]) if r[6][2] != 2 else (r[0], r[2])
             if chave_r not in vistos:
                 vistos.add(chave_r)
                 por_cidade.setdefault(c, []).append(r)
