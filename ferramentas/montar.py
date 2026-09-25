@@ -12,10 +12,10 @@ consulta, nem pelo nome, continua na pagina como estava, marcado: terceiro
 item do 7o campo = 2, e a fonte anterior no 8o.
 
 O formato de DADOS.pr nao muda (o comparativo do rede-amil-bradesco le os
-mesmos campos); a consulta so acrescenta o 8o campo, [endereco, telefones, "", cnpj]
-(o CNPJ serve ao comparativo: a mesma unidade na Amil e na Bradesco):
+mesmos campos); a consulta so acrescenta o 8o campo, [endereco, telefones, "", cnpj, cep]
+(CNPJ e CEP servem ao comparativo: a mesma unidade na Amil e na Bradesco):
   [nome, cidade, bairro, [codigos], tipo, [esp, mascara, ...],
-   [blocos de internacao, mascara de exames, 0], [endereco, telefones, "", cnpj]]
+   [blocos de internacao, mascara de exames, 0], [endereco, telefones, "", cnpj, cep]]
   fora da busca oficial: [..., [blocos, exames, 2], ["", "", fonte anterior]]
 
 Uso: python3 ferramentas/montar.py            # todas as cidades coletadas
@@ -186,7 +186,7 @@ def main():
                 p["nome"], c, p["bairro"], [p["cod"]], classe(p, prenomes), pares,
                 [blocos, exames, 0],
                 [p["end"], " · ".join(telefone(t) for t in p["tel"][:3]), "",
-                 re.sub(r"\D", "", p["cnpj"] or "")]])
+                 re.sub(r"\D", "", p["cnpj"] or ""), re.sub(r"\D", "", p.get("cep") or "")]])
         # da base anterior e nao achado na consulta, nem pelo nome: fica, marcado
         anteriores = base["cidades"].get(f"{col['uf']}|{col['cidade']}", [])
         for item in (col.get("conferencia") or {}).get("itens", []):
