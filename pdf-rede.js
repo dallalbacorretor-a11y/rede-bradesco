@@ -16,7 +16,10 @@
                                end, tel, bairro, cidade,
                                marcas:[true | false | "só enf"]}]},
                      {tipo:"texto", titulo, conta, texto:[[txt, negrito]]},
-                     {tipo:"grade", titulo, conta, cor, itens:[{nome, sub}]} ] } */
+                     {tipo:"grade", titulo, conta, cor, itens:[{nome, sub}]},
+                     {tipo:"tabela", titulo, conta, nota:[[txt, negrito]],
+                      colunas:[{nome, cor, largura}],
+                      linhas:[{celulas:[txt | {text, cor, negrito}], total:bool}]} ] } */
 (function (global) {
   "use strict";
 
@@ -255,6 +258,39 @@
     }]);
   }
 
+  /* Tabela de numeros (o resumo do comparativo): primeira coluna a esquerda, as
+     outras centradas; a linha "total" em negrito, com fio em cima. */
+  function tabela(s) {
+    var cols = s.colunas || [];
+    var widths = cols.map(function (c, i) { return c.largura || (i === 0 ? "*" : 62); });
+    var corpo = [cols.map(function (c, i) {
+      return { text: c.nome.toUpperCase(), style: "th", alignment: i === 0 ? "left" : "center",
+               fillColor: c.cor || FUNDO };
+    })];
+    s.linhas.forEach(function (l) {
+      corpo.push(l.celulas.map(function (c, i) {
+        var o = typeof c === "object" && c !== null ? c : { text: c };
+        return { text: o.text == null ? "" : String(o.text), color: o.cor || (i === 0 ? TINTA : TEXTO),
+                 bold: !!(o.negrito || l.total || i === 0), fontSize: i === 0 ? 8.8 : 9.4,
+                 alignment: i === 0 ? "left" : "center" };
+      }));
+    });
+    var totais = s.linhas.map(function (l) { return !!l.total; });
+    var out = cabecalho(s.titulo, s.conta).concat([{
+      table: { headerRows: 1, dontBreakRows: true, widths: widths, body: corpo },
+      layout: {
+        hLineWidth: function (i) { return i <= 1 ? 0 : (totais[i - 1] ? 1.2 : 0.5); },
+        hLineColor: function (i) { return totais[i - 1] ? CINZA : RISCO; },
+        vLineWidth: function () { return 0; },
+        fillColor: function (r) { return r === 0 ? FUNDO : (r % 2 === 0 ? ZEBRA : null); },
+        paddingLeft: function () { return 6; }, paddingRight: function () { return 6; },
+        paddingTop: function () { return 5; }, paddingBottom: function () { return 5; }
+      }
+    }]);
+    if (s.nota) out.push({ text: trechos(s.nota), fontSize: 7.6, color: CINZA, margin: [0, 5, 0, 4] });
+    return out;
+  }
+
   // ------------------------------------------------------------- documento
   function montar(doc) {
     var conteudo = capa(doc.capa);
@@ -263,6 +299,7 @@
       else if (s.tipo === "bloco") { if (s.linhas.length) conteudo = conteudo.concat(bloco(s)); }
       else if (s.tipo === "texto") conteudo = conteudo.concat(texto(s));
       else if (s.tipo === "grade") { if (s.itens.length) conteudo = conteudo.concat(grade(s)); }
+      else if (s.tipo === "tabela") { if (s.linhas.length) conteudo = conteudo.concat(tabela(s)); }
     });
     var cores = (doc.capa.cores && doc.capa.cores.length) ? doc.capa.cores : [OURO];
     return {
