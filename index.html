@@ -484,8 +484,8 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
       <button class="limpar" data-alvo="fQ" aria-label="limpar busca">&times;</button>
     </div>
     <div class="seg" id="fTipo" role="group" aria-label="tipo de prestador">
-      <button data-t="-1" aria-pressed="true">Tudo</button>
-      <button data-t="1" aria-pressed="false">Hospitais</button>
+      <button data-t="-1" aria-pressed="false">Tudo</button>
+      <button data-t="1" aria-pressed="true">Hospitais</button>
       <button data-t="0" aria-pressed="false">Clínicas</button>
       <button data-t="3" aria-pressed="false">Médicos</button>
       <button data-t="2" aria-pressed="false">Laboratórios</button>
@@ -715,7 +715,8 @@ for(let i=0;i<MUN.length;i++){
 }
 
 /* ---------------------------------------------------------------- estado */
-const st = {cid:-1, mun:-1, plano:-1, esp:-1, bai:-1, tipo:-1, q:'',
+/* a busca abre nos hospitais; "Tudo" mostra o resto, tambem a partir deles */
+const st = {cid:-1, mun:-1, plano:-1, esp:-1, bai:-1, tipo:1, q:'',
             planos:new Set(), modo:'qualquer'};
 /* bits exigidos pela selecao de produtos; 0 = sem recorte */
 function bitsPlano(){
@@ -862,8 +863,11 @@ function filtrar(){
     if(!passaPlano(mask)) continue;
     res.push({p:p, sub:sub, mask:mask, varia:varia});
   }
-  return res;
+  /* hospitais primeiro, depois clinicas, laboratorios, imagem e medicos (a ordem dos
+     dados dentro de cada tipo continua) */
+  return res.sort((a, b) => ORDEM_TIPO[a.p[4]] - ORDEM_TIPO[b.p[4]]);
 }
+const ORDEM_TIPO = {1:0, 0:1, 2:2, 4:3, 3:4};
 
 /* --------------------------------------------------------- tabela da rede */
 function cabecTabela(){
@@ -1056,7 +1060,7 @@ function render(reinicia){
   if(!achados.length){
     $('maisWrap').style.display = 'none';
     lista.innerHTML = st.mun >= 0 ? painelRegiao()
-      : (st.cid<0 && st.esp<0 && st.tipo<0 && !st.planos.size && !st.q.trim()) ? painelInicial()
+      : (st.cid<0 && st.esp<0 && !st.planos.size && !st.q.trim()) ? painelInicial()
       : '<div class="painel"><h2>Nenhum prestador com esses filtros</h2>' +
         '<p>Tente tirar a especialidade ou o bairro, ou trocar o plano.</p></div>';
     return;
@@ -1172,8 +1176,10 @@ function resumo(){
 /* ---------------------------------------------------------------- ações */
 function atualiza(){
   pintaProdutos();
+  /* sem cidade, especialidade, produto nem busca: o painel para escolher a cidade (o tipo,
+     que abre em Hospitais, nao conta) */
   const vazio = st.mun >= 0 ||
-    (st.cid<0 && st.esp<0 && st.tipo<0 && !st.planos.size && !st.q.trim());
+    (st.cid<0 && st.esp<0 && !st.planos.size && !st.q.trim());
   achados = vazio ? [] : filtrar();
   resumo();
   render(true);
@@ -1893,10 +1899,10 @@ document.querySelector('footer').addEventListener('click', e => {
   if(e.target.id === 'trocaCorr') abreCorr(false);
 });
 $('bZerar').addEventListener('click', () => {
-  st.planos.clear(); st.modo = 'qualquer'; st.tipo = -1; st.q = ''; st.mun = -1;
+  st.planos.clear(); st.modo = 'qualquer'; st.tipo = 1; st.q = ''; st.mun = -1;
   guarda('produtos', ''); guarda('modo', 'qualquer');
   $('fQ').value = ''; $('cQ').classList.remove('tem');
-  Array.from($('fTipo').children).forEach((x,i) => x.setAttribute('aria-pressed', i===0));
+  Array.from($('fTipo').children).forEach(x => x.setAttribute('aria-pressed', x.dataset.t === '1'));
   setEsp(-1); setCidade(-1);
 });
 $('lista').addEventListener('click', e => {
