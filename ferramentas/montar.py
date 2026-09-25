@@ -17,7 +17,8 @@ mesmos campos); a consulta so acrescenta o 8o campo, [endereco, telefones]:
    [blocos de internacao, mascara de exames, 0], [endereco, telefones]]
   fora da busca oficial: [..., [blocos, exames, 2], ["", "", fonte anterior]]
 
-Uso: python3 ferramentas/montar.py
+Uso: python3 ferramentas/montar.py            # todas as cidades coletadas
+     python3 ferramentas/montar.py PR SC      # so esses estados (outro em coleta)
 """
 import gzip
 import json
@@ -124,7 +125,9 @@ def main():
     D, fim = json.JSONDecoder().raw_decode(html, ini)
     nplanos = len(D["planos"])
 
-    cidades = sorted(PASTA.glob("*/*.json"))
+    ufs_pedidas = {u.upper() for u in sys.argv[1:]}
+    cidades = sorted(c for c in PASTA.glob("*/*.json")
+                     if not ufs_pedidas or c.parent.name in ufs_pedidas)
     if not cidades:
         sys.exit("nada em ferramentas/consulta/: rode antes o coletar.py")
     coletas = [json.loads(c.read_text(encoding="utf-8")) for c in cidades]
