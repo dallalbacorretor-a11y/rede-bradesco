@@ -143,21 +143,27 @@ def main():
     esp_i = {e: i for i, e in enumerate(D["esp"])}
     serv_i = {s: i for i, s in enumerate(D["serv"])}
     ufs = {u: i for i, u in enumerate(D["uf"])}
-    cid_i = {(D["uf"][c[0]], c[1]): i for i, c in enumerate(D["cid"])}
+    # a mesma cidade escrita com acento, apostrofo ou hifen e uma cidade so
+    chave = lambda uf, n: (uf, re.sub(r"[^A-Z]", "", sem_acento(n)))
+    grupos = {}
+    for i, c in enumerate(D["cid"]):
+        grupos.setdefault(chave(D["uf"][c[0]], c[1]), []).append(i)
+    cid_i = {k: v[0] for k, v in grupos.items()}
+    trocadas = set()     # cidades (e suas grafias repetidas) que vem da consulta
     nom, bai = D["nom"], D["bai"]
     novos_nom, novos_bai = [], []
     consulta = {int(k): v for k, v in (D.get("consulta") or {}).items()}
-    por_cidade = {}
+    por_cidade, datas = {}, {}
 
     for col in coletas:
-        chave = (col["uf"], col["cidade"])
-        if chave not in cid_i:
+        k = chave(col["uf"], col["cidade"])
+        if k not in cid_i:
             if col["uf"] not in ufs:
                 sys.exit(f"UF desconhecida: {col['uf']}")
-            cid_i[chave] = len(D["cid"])
+            cid_i[k] = len(D["cid"])
             D["cid"].append([ufs[col["uf"]], col["cidade"]])
             D["geo"].append([round(col["pontos"][0][0], 4), round(col["pontos"][0][1], 4)])
-        c = cid_i[chave]
+        c = cid_i[k]
         linhas = []
         for p in col["prestadores"]:
             at = p["at"]
@@ -204,16 +210,28 @@ def main():
             linhas.append([b["nome"], c, b["bairro"], b["cod"], b["tipo"], pares,
                            [blocos, b["lab"], 2], ["", "", " e ".join(fontes)]])
             fora_da_busca += 1
-        ordem = {1: 0, 0: 1, 3: 2, 2: 3, 4: 4}
+        # a base antiga tinha cidades repetidas com outra grafia ("BIRITIBA-MIRIM"
+        # e "BIRITIBA MIRIM"): viram uma so, sem repetir prestador
+        vistos = {(r[3][0] if r[6][2] != 2 else (r[0], r[2])) for r in por_cidade.get(c, [])}
+        for r in linhas:
+            chave_r = r[3][0] if r[6][2] != 2 else (r[0], r[2])
+            if chave_r not in vistos:
+                vistos.add(chave_r)
+                por_cidade.setdefault(c, []).append(r)
+        por_cidade.setdefault(c, [])
+        trocadas.update(grupos.get(k, [c]))
+        # data da consulta: a mais antiga entre os arquivos da cidade nesta montagem
+        d = date.fromisoformat(col["data"]).strftime("%d/%m/%Y")
+        datas[c] = min(datas.get(c, d), d, key=lambda t: t.split("/")[::-1])
+    consulta.update(datas)
+    ordem = {1: 0, 0: 1, 3: 2, 2: 3, 4: 4}
+    for linhas in por_cidade.values():
         linhas.sort(key=lambda r: (ordem[r[4]], sem_acento(r[0])))
-        por_cidade[c] = linhas
-        d = date.fromisoformat(col["data"])
-        consulta[c] = d.strftime("%d/%m/%Y")
 
     # nome e bairro viram texto de novo para recompactar as listas sem sobras
     pr = []
     for p in D["pr"]:
-        if p[1] in por_cidade:
+        if p[1] in trocadas:
             continue
         q = list(p)
         q[0], q[2] = nom[p[0]], bai[p[2]]

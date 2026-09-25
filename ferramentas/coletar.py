@@ -30,6 +30,7 @@ import argparse
 import gzip
 import json
 import math
+import re
 import sys
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -66,9 +67,22 @@ def dados_da_pagina():
 
 
 def localidade(x):
-    """'1-B RETIRO/CURITIBA/PR' -> ('CURITIBA', 'PR')"""
+    """'1-B RETIRO/CURITIBA/PR' -> ('CURITIBA', 'PR'), sem acento ('NOVA IGUAÇU' vem
+    assim em alguns cadastros; a pagina escreve 'NOVA IGUACU')."""
     partes = ((x.get("listaEnderecos") or [{}])[0].get("nomeLocalidade") or "").split("/")
-    return (partes[-2].strip(), partes[-1].strip()) if len(partes) >= 3 else ("", "")
+    if len(partes) < 3:
+        return ("", "")
+    return (" ".join(nomes.sem_acento(partes[-2]).replace("'", " ").split()), partes[-1].strip())
+
+
+def chave_cidade(nome):
+    """So as letras: 'SANT ANA DO LIVRAMENTO' e 'SANTANA DO LIVRAMENTO' sao a mesma."""
+    return re.sub(r"[^A-Z]", "", nomes.sem_acento(nome))
+
+
+def mesma_cidade(x, cidade, uf):
+    c, u = localidade(x)
+    return u == uf and chave_cidade(c) == chave_cidade(cidade)
 
 
 def posicao(x):
@@ -202,7 +216,7 @@ class Coleta:
             voltou = self.busca_nome(termo, centro) if termo else set()
             achado = [c for c in voltou if nomes.mesmo_estrito(b["nome"], nomes_de(c), cidade)]
             if achado:
-                c = min(achado, key=lambda c: localidade(self.fichas[c]) != (cidade, uf))
+                c = min(achado, key=lambda c: not mesma_cidade(self.fichas[c], cidade, uf))
                 item.update(achado=c, termo=termo, nome_hoje=self.fichas[c].get("nomeFantasia"),
                             cidade_hoje=localidade(self.fichas[c])[0])
             itens.append(item)
@@ -262,7 +276,7 @@ class Coleta:
                     print(f"  {n}/{len(falta)} · {time.time() - inicio:.0f}s", flush=True)
 
     def da_cidade(self, cidade, uf):
-        return [c for c, x in self.fichas.items() if localidade(x) == (cidade, uf)]
+        return [c for c, x in self.fichas.items() if mesma_cidade(x, cidade, uf)]
 
     def cidade(self, cidade, uf, centro, pontos=None):
         """Consulta ate cobrir a cidade e grava ferramentas/consulta/<UF>/<CIDADE>.json."""
@@ -382,9 +396,13 @@ def main():
             centro = (sum(p[0] for p in pos) / len(pos), sum(p[1] for p in pos) / len(pos))
         col.cidade(cidade, uf, centro)
         # cidades do estado que a consulta trouxe e a pagina ainda nao tem
-        novas = sorted({localidade(x)[0] for x in col.fichas.values()
-                        if localidade(x)[1] == uf} - vistas - set(fila) - {""})
-        fila += novas
+        conhecidas = {chave_cidade(c) for c in vistas | set(fila)}
+        novas = {}
+        for x in col.fichas.values():
+            c, u = localidade(x)
+            if u == uf and c and chave_cidade(c) not in conhecidas:
+                novas.setdefault(chave_cidade(c), c)
+        fila += sorted(novas.values())
 
 
 if __name__ == "__main__":
