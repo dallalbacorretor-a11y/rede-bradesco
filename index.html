@@ -241,6 +241,21 @@ input::placeholder{color:var(--fraco)}
 .limpar:hover{background:var(--rule); color:var(--ink)}
 .campo.tem .limpar{display:block}
 .campo.tem input{padding-right:30px}
+/* cidades escolhidas: uma etiqueta por cidade; o campo fica livre para juntar outra */
+.cidades-escolhidas{padding:0 24px 12px; display:flex; flex-wrap:wrap; gap:6px; align-items:center}
+.cidades-escolhidas[hidden]{display:none}
+.cidades-escolhidas .rot{font:600 10px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--muted); margin-right:4px}
+.cid-esc{display:inline-flex; align-items:center; gap:6px; padding:3px 4px 3px 11px; border-radius:999px;
+  background:var(--ouro-fraco); border:1px solid color-mix(in srgb, var(--ouro) 40%, transparent);
+  font-size:13.5px; font-weight:600; color:var(--ink)}
+.cid-esc .qt{font:400 11.5px/1 var(--mono); color:var(--fraco)}
+.cid-esc button{border:0; background:transparent; color:var(--fraco); font-size:16px; line-height:1;
+  width:22px; height:22px; border-radius:50%; cursor:pointer}
+.cid-esc button:hover{background:var(--rule); color:var(--ink)}
+.tira-todas{border:0; background:transparent; color:var(--fraco); font-size:12.5px;
+  text-decoration:underline; cursor:pointer; padding:4px 6px}
+.tira-todas:hover{color:var(--ink)}
 
 .seg{display:inline-flex; border:1px solid var(--rule-forte); border-radius:6px; overflow:hidden;
   background:var(--raised); align-self:flex-end}
@@ -495,6 +510,7 @@ footer .selo-rodape{font:600 10px/1 var(--sans); letter-spacing:.2em; text-trans
       <button class="btn fantasma" id="bAvancado" aria-expanded="false">Mais filtros</button>
     </div>
   </div>
+  <div class="cidades-escolhidas" id="cidEsc" hidden></div>
   <div class="produtos">
     <span class="rot">Escolha o produto</span>
     <div class="cartoes-prod" id="cartoesProd"></div>
@@ -716,7 +732,9 @@ for(let i=0;i<MUN.length;i++){
 
 /* ---------------------------------------------------------------- estado */
 /* a busca abre nos hospitais; "Tudo" mostra o resto, tambem a partir deles */
-const st = {cid:-1, mun:-1, plano:-1, esp:-1, bai:-1, tipo:1, q:'',
+/* cids: as cidades escolhidas, na ordem em que entraram (pode juntar varias); bai/baiCid: o
+   bairro (e de qual cidade, quando ha mais de uma) */
+const st = {cids:[], mun:-1, plano:-1, esp:-1, bai:-1, baiCid:-1, tipo:1, q:'',
             planos:new Set(), modo:'qualquer'};
 /* bits exigidos pela selecao de produtos; 0 = sem recorte */
 function bitsPlano(){
@@ -789,7 +807,19 @@ function autocomplete(inp, box, fonte, escolher){
   });
 }
 
-function faixa(){ return st.cid>=0 ? [cIni[st.cid], cFim[st.cid]] : [0, PR.length]; }
+/* trechos de PR das cidades escolhidas (PR esta ordenado por cidade); nenhuma = o pais */
+function faixas(){
+  return st.cids.length ? st.cids.filter(c => cIni[c] >= 0).map(c => [cIni[c], cFim[c]])
+                        : [[0, PR.length]];
+}
+const passaBairro = p => st.bai < 0 || (p[2] === st.bai && (st.baiCid < 0 || p[1] === st.baiCid));
+const nomeCid = c => CID[c][1] + '/' + UF[CID[c][0]];
+/* "Curitiba/PR", "Curitiba/PR e Pinhais/PR"... ate `max` pelo nome; depois "Curitiba/PR e mais 5 cidades" */
+function ondeTexto(brasil, max){
+  const n = st.cids.map(nomeCid);
+  if(!n.length) return brasil;
+  return n.length <= (max || 4) ? juntar(n) : n[0] + ' e mais ' + (n.length - 1) + ' cidades';
+}
 
 function fonteCidade(q){
   const out = [];
@@ -797,7 +827,9 @@ function fonteCidade(q){
     if(!cQt[i]) continue;
     const p = q ? CIDN[i].indexOf(q) : 0;
     if(p < 0) continue;
-    out.push({id:i, rot:CID[i][1]+' — '+UF[CID[i][0]], qt:cQt[i], p:p});
+    /* a que ja esta escolhida aparece, avisada, no fim */
+    const ja = st.cids.includes(i);
+    out.push({id:i, rot:CID[i][1]+' — '+UF[CID[i][0]], qt: ja ? 'já escolhida' : cQt[i], p: p + (ja ? 1000 : 0)});
   }
   if(MUN.length){
     for(let i=0;i<MUN.length;i++){
@@ -814,10 +846,10 @@ function fonteCidade(q){
 
 function fonteEsp(q){
   const qt = new Int32Array(ESP.length);
-  const f = faixa(), bit = st.modo === 'qualquer' ? bitsPlano() : 0;
-  for(let i=f[0];i<f[1];i++){
+  const bit = st.modo === 'qualquer' ? bitsPlano() : 0;
+  for(const f of faixas()) for(let i=f[0];i<f[1];i++){
     if(st.tipo>=0 && PR[i][4]!==st.tipo) continue;
-    if(st.bai>=0 && PR[i][2]!==st.bai) continue;
+    if(!passaBairro(PR[i])) continue;
     const e = PR[i][5];
     for(let k=0;k<e.length;k+=2) if(!FORA.has(e[k]) && (!bit || (e[k+1]&bit))) qt[e[k]]++;
   }
@@ -834,15 +866,14 @@ function fonteEsp(q){
 
 /* ---------------------------------------------------------------- filtro */
 function filtrar(){
-  const f = faixa(), ini = f[0], fim = f[1];
   const bit = st.modo === 'qualquer' ? bitsPlano() : 0;
   const toks = st.q.trim() ? norm(st.q).split(/\s+/) : null;
   const dig = /^\d+$/.test(st.q.trim()) ? st.q.trim().replace(/^0+/,'') : null;
   const res = [];
-  for(let i=ini;i<fim;i++){
+  for(const f of faixas()) for(let i=f[0];i<f[1];i++){
     const p = PR[i];
     if(st.tipo>=0 && p[4]!==st.tipo) continue;
-    if(st.bai>=0 && p[2]!==st.bai) continue;
+    if(!passaBairro(p)) continue;
     if(toks){
       const n = NOMN[p[0]];
       let ok = toks.every(t => n.includes(t));
@@ -929,10 +960,9 @@ function linhaRede(r){
 
 /* --------------------------------------------------------- escolha de produto */
 function pintaProdutos(){
-  const f = faixa();
   const qt = [], cid = [];
   for(let i=0;i<NP;i++){ qt.push(0); cid.push(new Set()); }
-  for(let i=f[0];i<f[1];i++){
+  for(const f of faixas()) for(let i=f[0];i<f[1];i++){
     const p = PR[i];
     let m = 0;
     for(let k=1;k<p[5].length;k+=2) m |= p[5][k];
@@ -942,7 +972,7 @@ function pintaProdutos(){
     '<label class="cartao-prod c'+i+(st.planos.has(i)?' on':'')+'">' +
     '<input type="checkbox" data-p="'+i+'"'+(st.planos.has(i)?' checked':'')+'>' +
     '<span><b>'+esc(n)+'</b><span>'+qt[i].toLocaleString('pt-BR')+' prestadores' +
-    (st.cid<0 ? ' · '+cid[i].size.toLocaleString('pt-BR')+' cidades' : '')+'</span></span></label>'
+    (st.cids.length !== 1 ? ' · '+cid[i].size.toLocaleString('pt-BR')+' cidades' : '')+'</span></span></label>'
   ).join('');
   for(const b of $('fModo').children) b.setAttribute('aria-pressed', b.dataset.m === st.modo);
   $('fModo').style.display = st.planos.size > 1 ? '' : 'none';
@@ -1060,7 +1090,7 @@ function render(reinicia){
   if(!achados.length){
     $('maisWrap').style.display = 'none';
     lista.innerHTML = st.mun >= 0 ? painelRegiao()
-      : (st.cid<0 && st.esp<0 && !st.planos.size && !st.q.trim()) ? painelInicial()
+      : (!st.cids.length && st.esp<0 && !st.planos.size && !st.q.trim()) ? painelInicial()
       : '<div class="painel"><h2>Nenhum prestador com esses filtros</h2>' +
         '<p>Tente tirar a especialidade ou o bairro, ou trocar o plano.</p></div>';
     return;
@@ -1092,7 +1122,8 @@ function painelInicial(){
             : Array.from(CID.keys()).sort((a,b) => cQt[b]-cQt[a]).slice(0,8);
   return '<div class="painel"><h2>Comece pela cidade</h2>' +
     '<p>Digite no campo acima. Vale qualquer município do Brasil — se não tiver rede, a tela ' +
-    'mostra as cidades da região que têm.</p><div class="anel"><h3>' +
+    'mostra as cidades da região que têm. Para juntar cidades (Curitiba e a região, por exemplo), ' +
+    'escolha uma e depois digite a próxima.</p><div class="anel"><h3>' +
     (rec.length ? 'Suas últimas cidades' : 'Maiores redes do país') + '</h3><div class="atalhos">' +
     top.map(i => '<button class="atalho" data-cid="'+i+'">'+esc(CID[i][1])+'/'+esc(UF[CID[i][0]])+
       ' <span>'+cQt[i]+'</span></button>').join('') + '</div></div></div>';
@@ -1142,7 +1173,7 @@ function resumo(){
     for(let i=0;i<NP;i++) if(r.mask & MASCARA[i]) qt[i]++;
     for(let k=0;k<r.sub.length;k+=2) if(!FORA.has(r.sub[k])) esps.add(r.sub[k]);
   }
-  const onde = st.cid>=0 ? CID[st.cid][1]+'/'+UF[CID[st.cid][0]] : 'todo o Brasil';
+  const onde = ondeTexto('todo o Brasil');
   const total = achados.length;
   let h = '<div class="contagem"><b>'+total.toLocaleString('pt-BR')+'</b><span>prestadores em ' +
           esc(onde) + (esps.size ? ' · '+esps.size+' especialidades' : '') + '</span></div>' +
@@ -1155,22 +1186,27 @@ function resumo(){
   }
   box.innerHTML = h + '</div>';
 
-  if(daConsulta(st.cid)){
+  /* de onde vem a rede de cada cidade escolhida: a consulta oficial, ou as listas do estado */
+  const cons = st.cids.filter(daConsulta), resto = st.cids.filter(c => !daConsulta(c));
+  let s = '';
+  if(cons.length){
     const fora = achados.filter(r => r.p[6] && r.p[6][2] === 2).length;
-    selos.innerHTML = '<span class="selo-uf ok">Rede completa da cidade: consulta oficial da Bradesco em ' +
-      esc(CONSULTA[st.cid]) + ' — consultas, exames, internação e pronto-socorro, com endereço e telefone</span>' +
+    const quem = st.cids.length === 1 ? 'da cidade' : !resto.length ? 'das ' + cons.length + ' cidades'
+               : 'de ' + juntar(cons.map(nomeCid));
+    s += '<span class="selo-uf ok">Rede completa ' + esc(quem) + ': consulta oficial da Bradesco em ' +
+      esc(juntar([...new Set(cons.map(c => CONSULTA[c]))])) +
+      ' — consultas, exames, internação e pronto-socorro, com endereço e telefone</span>' +
       (fora ? '<span class="selo-uf falta">' + fora + (fora === 1 ? ' prestador' : ' prestadores') +
               ' das listas anteriores fora da busca oficial, marcado' + (fora === 1 ? '' : 's') + '</span>' : '');
-  } else if(st.cid>=0){
-    const uf = UF[CID[st.cid][0]];
-    let s = '';
+  }
+  for(const uf of [...new Set(resto.map(c => UF[CID[c][0]]))]){
     for(const par of [['Hospitais', HREF], ['Exames', LREF]]){
       const r = par[1][uf];
       s += r ? '<span class="selo-uf ok">'+par[0]+': lista oficial de '+esc(uf)+' · '+esc(r.ref)+'</span>'
              : '<span class="selo-uf falta">'+par[0]+': '+esc(uf)+' ainda sem lista oficial</span>';
     }
-    selos.innerHTML = s;
-  } else selos.innerHTML = '';
+  }
+  selos.innerHTML = s;
 }
 
 /* ---------------------------------------------------------------- ações */
@@ -1179,40 +1215,68 @@ function atualiza(){
   /* sem cidade, especialidade, produto nem busca: o painel para escolher a cidade (o tipo,
      que abre em Hospitais, nao conta) */
   const vazio = st.mun >= 0 ||
-    (st.cid<0 && st.esp<0 && !st.planos.size && !st.q.trim());
+    (!st.cids.length && st.esp<0 && !st.planos.size && !st.q.trim());
   achados = vazio ? [] : filtrar();
   resumo();
   render(true);
 }
 
+/* bairros das cidades escolhidas; com mais de uma, cada bairro vem com a cidade dele
+   (o "Centro" de Curitiba nao e o de Pinhais). O valor e "cidade:bairro" (-1 = qualquer cidade) */
 function bairros(){
-  const sel = $('fBai'), f = faixa(), qt = new Map();
-  for(let i=f[0];i<f[1];i++) qt.set(PR[i][2], (qt.get(PR[i][2])||0)+1);
-  const lista = Array.from(qt.keys()).sort((a,b) => BAIN[a].localeCompare(BAIN[b]));
-  sel.innerHTML = '<option value="-1">todos os bairros</option>' +
-    lista.map(i => '<option value="'+i+'">'+esc(BAI[i]||'—')+' ('+qt.get(i)+')</option>').join('');
-  sel.disabled = st.cid < 0;
-  sel.value = '-1'; st.bai = -1;
+  const sel = $('fBai'), qt = new Map(), varias = st.cids.length > 1;
+  for(const f of faixas()) for(let i=f[0];i<f[1];i++){
+    const k = (varias ? PR[i][1] : -1) + ':' + PR[i][2];
+    qt.set(k, (qt.get(k)||0)+1);
+  }
+  const rot = k => { const cb = k.split(':').map(Number);
+    return (BAI[cb[1]] || '—') + (cb[0] >= 0 ? ' — ' + CID[cb[0]][1] : ''); };
+  const lista = Array.from(qt.keys()).sort((a,b) => norm(rot(a)).localeCompare(norm(rot(b))));
+  sel.innerHTML = '<option value="-1:-1">todos os bairros</option>' +
+    lista.map(k => '<option value="'+k+'">'+esc(rot(k))+' ('+qt.get(k)+')</option>').join('');
+  sel.disabled = !st.cids.length;
+  sel.value = '-1:-1'; st.bai = -1; st.baiCid = -1;
 }
 
-function setCidade(i){
-  st.cid = i; st.bai = -1; st.mun = -1;
-  $('fCid').value = i>=0 ? CID[i][1]+' — '+UF[CID[i][0]] : '';
-  $('cCid').classList.toggle('tem', i>=0);
-  bairros();
-  if(i>=0){
-    guarda('cidade', i);
+/* as cidades escolhidas viram etiquetas com x; o campo fica livre para juntar outra */
+function pintaCidades(){
+  const box = $('cidEsc');
+  box.innerHTML = '<span class="rot">' + (st.cids.length > 1 ? st.cids.length + ' cidades juntas'
+                                                             : 'Cidade') + '</span>' +
+    st.cids.map(c => '<span class="cid-esc">' + esc(nomeCid(c)) + ' <span class="qt">' + cQt[c] +
+      '</span><button type="button" data-tira="' + c + '" aria-label="tirar ' + esc(CID[c][1]) +
+      '">&times;</button></span>').join('') +
+    (st.cids.length > 1 ? '<button type="button" class="tira-todas" data-tira="-1">tirar todas</button>' : '');
+  box.hidden = !st.cids.length;
+  $('fCid').placeholder = st.cids.length ? 'juntar outra cidade — digite o nome'
+                                         : 'digite a cidade — ex.: curitiba';
+}
+function cidadesMudaram(){
+  pintaCidades(); bairros();
+  guarda('cidades', st.cids.join('|'));
+  atualiza();
+}
+function juntaCidade(i){
+  st.mun = -1;
+  $('fCid').value = ''; $('cCid').classList.remove('tem');
+  if(i >= 0 && !st.cids.includes(i)){
+    st.cids.push(i);
     const rec = [String(i)].concat((lembra('recentes')||'').split('|')
       .filter(x => x && x!==String(i)));
     guarda('recentes', rec.slice(0,8).join('|'));
   }
-  atualiza();
+  cidadesMudaram();
 }
+function tiraCidade(i){
+  st.cids = i < 0 ? [] : st.cids.filter(c => c !== i);
+  cidadesMudaram();
+}
+/* municipio sem rede: o painel mostra as cidades da regiao que tem (e da para juntar varias) */
 function setMunicipio(i){
-  st.cid = -1; st.mun = i;
+  st.mun = i;
   $('fCid').value = MUN[i][0] + ' — ' + UF[MUN[i][1]];
   $('cCid').classList.add('tem');
-  bairros(); atualiza();
+  atualiza();
 }
 function setEsp(i){
   st.esp = i;
@@ -1266,8 +1330,9 @@ function entregarPdf(botao, montar){
 
 function documentoRede(){
   const comEsp = $('fEspPdf').checked;
-  const onde = st.cid>=0 ? CID[st.cid][1]+' / '+UF[CID[st.cid][0]] : 'Brasil — todas as cidades';
-  const uf = st.cid>=0 ? UF[CID[st.cid][0]] : null;
+  const onde = ondeTexto('Brasil — todas as cidades', 8);
+  const cons = st.cids.filter(daConsulta), resto = st.cids.filter(c => !daConsulta(c));
+  const datasCons = juntar([...new Set(cons.map(c => CONSULTA[c]))]);
   /* o PDF mostra so os produtos marcados na tela; nenhum marcado = todos */
   const COLS = st.planos.size ? [...st.planos].sort((a,b) => a-b) : PLANOS.map((_, i) => i);
   const nomes = COLS.map(i => PLANOS[i]);
@@ -1275,7 +1340,7 @@ function documentoRede(){
   const recorte = [];
   if(st.planos.size) recorte.push('produto ' + nomes.join(st.modo === 'todos' ? ' e ' : ' ou '));
   if(st.esp>=0) recorte.push('especialidade ' + ESP[st.esp]);
-  if(st.bai>=0) recorte.push('bairro ' + BAI[st.bai]);
+  if(st.bai>=0) recorte.push('bairro ' + BAI[st.bai] + (st.baiCid >= 0 ? ' (' + CID[st.baiCid][1] + ')' : ''));
   if(st.q.trim()) recorte.push('busca “' + st.q.trim() + '”');
 
   const porTipo = {0:[], 1:[], 2:[], 3:[], 4:[]};
@@ -1291,18 +1356,27 @@ function documentoRede(){
   }
 
   const fonte = [];
-  if(daConsulta(st.cid)){
-    fonte.push(['Toda a rede', true], [' — consulta oficial de rede referenciada no site da Bradesco Saúde, ' +
-               'feita em ' + CONSULTA[st.cid] + ': consultas, exames, internação e pronto-socorro.', false]);
-    const fora = achados.filter(r => r.p[6] && r.p[6][2] === 2).length;
-    if(fora) fonte.push([' ' + fora + (fora === 1 ? ' prestador das listas anteriores não aparece'
+  const fora = achados.filter(r => r.p[6] && r.p[6][2] === 2).length;
+  const textoFora = () => fonte.push([' ' + fora + (fora === 1 ? ' prestador das listas anteriores não aparece'
                           : ' prestadores das listas anteriores não aparecem') +
                          ' na busca e ' + (fora === 1 ? 'vai marcado' : 'vão marcados') + '.', false]);
+  if(cons.length && !resto.length){
+    fonte.push(['Toda a rede', true], [' — consulta oficial de rede referenciada no site da Bradesco Saúde, ' +
+               'feita em ' + datasCons + ': consultas, exames, internação e pronto-socorro.', false]);
+    if(fora) textoFora();
   } else {
+    if(cons.length){
+      fonte.push(['Toda a rede de ' + juntar(cons.map(nomeCid)), true], [' — consulta oficial de rede ' +
+                 'referenciada no site da Bradesco Saúde, feita em ' + datasCons + '. ', false]);
+      if(fora) textoFora();
+      fonte.push([' Nas outras cidades: ', false]);
+    }
     fonte.push(['Consultas e exames', true], [' — buscador oficial da Bradesco, base ' + DADOS.ref + '. ', false]);
-    if(uf && HREF[uf]) fonte.push(['Internação', true], [' — lista oficial de hospitais de ' + uf + ', ' + HREF[uf].ref + '. ', false]);
-    if(uf && LREF[uf]) fonte.push(['Exames e diagnóstico', true], [' — lista oficial de laboratórios de ' + uf + ', ' + LREF[uf].ref + '.', false]);
-    if(st.cid < 0 && Object.keys(CONSULTA).length)
+    for(const uf of [...new Set(resto.map(c => UF[CID[c][0]]))]){
+      if(HREF[uf]) fonte.push(['Internação', true], [' — lista oficial de hospitais de ' + uf + ', ' + HREF[uf].ref + '. ', false]);
+      if(LREF[uf]) fonte.push(['Exames e diagnóstico', true], [' — lista oficial de laboratórios de ' + uf + ', ' + LREF[uf].ref + '. ', false]);
+    }
+    if(!st.cids.length && Object.keys(CONSULTA).length)
       fonte.push([' Nas cidades já atualizadas pela consulta oficial da Bradesco, a rede vem dela.', false]);
   }
   const agrupados = COLS.filter(i => GRUPOS[i].sub).map(i => PLANOS[i]);
@@ -1371,7 +1445,7 @@ function documentoRede(){
   }
 
   return {
-    arquivo: nomeArquivoPdf(['Rede Bradesco Saúde', juntar(nomes), st.cid>=0 ? onde : 'Brasil']),
+    arquivo: nomeArquivoPdf(['Rede Bradesco Saúde', juntar(nomes), ondeTexto('Brasil', 3)]),
     rodape: 'Rede referenciada Bradesco Saúde   ·   ' + onde,
     corretora: corretora(), corretorNome: CORR.nome || '',
     capa: { titulo: 'Rede referenciada', destaque: 'Bradesco Saúde', onde: onde,
@@ -1391,7 +1465,7 @@ function imprimeTroca(){
   if(a === b) return;
   entregarPdf($('bPdfTroca'), () => {
     const A = PLANOS[a], B = PLANOS[b];
-    const onde = st.cid >= 0 ? CID[st.cid][1] + ' / ' + UF[CID[st.cid][0]] : 'Brasil';
+    const onde = ondeTexto('Brasil');
     const d = comparaPlanos(a, b);
     const pct = d.temA ? Math.round(d.mantem*100/d.temA) : 0;
     const menos = d.temA - d.mantem;
@@ -1457,7 +1531,9 @@ function tabela(){
 }
 const csvTexto = () => tabela()
   .map(l => l.map(v => '"'+String(v).replace(/"/g,'""')+'"').join(';')).join('\r\n');
-const nomeArquivo = () => 'Rede Bradesco - ' + (st.cid>=0 ? CID[st.cid][1] : 'Brasil');
+const nomeArquivo = () => 'Rede Bradesco - ' + (!st.cids.length ? 'Brasil'
+  : st.cids.length <= 3 ? st.cids.map(c => CID[c][1]).join(', ')
+  : CID[st.cids[0]][1] + ' e mais ' + (st.cids.length - 1) + ' cidades');
 
 let SALVAR = null;   /* capacidade de download da página publicada */
 if(typeof window !== 'undefined' && window.claude && window.claude.use)
@@ -1569,7 +1645,11 @@ function copiar(){
 })();
 
 autocomplete($('fCid'), $('acCid'), fonteCidade,
-  it => it.mun !== undefined ? setMunicipio(it.mun) : setCidade(it.id));
+  it => it.mun !== undefined ? setMunicipio(it.mun) : juntaCidade(it.id));
+$('cidEsc').addEventListener('click', e => {
+  const b = e.target.closest('[data-tira]');
+  if(b) tiraCidade(+b.dataset.tira);
+});
 autocomplete($('fEsp'), $('acEsp'), fonteEsp, it => setEsp(it.id));
 
 $('cartoesProd').addEventListener('change', e => {
@@ -1585,7 +1665,10 @@ $('fModo').addEventListener('click', e => {
   if(!b || b.dataset.m === st.modo) return;
   st.modo = b.dataset.m; guarda('modo', st.modo); atualiza();
 });
-$('fBai').addEventListener('change', e => { st.bai = +e.target.value; atualiza(); });
+$('fBai').addEventListener('change', e => {
+  const cb = e.target.value.split(':').map(Number);
+  st.baiCid = cb[0]; st.bai = cb[1]; atualiza();
+});
 $('fTipo').addEventListener('click', e => {
   const b = e.target.closest('button'); if(!b) return;
   Array.from(e.currentTarget.children).forEach(x => x.setAttribute('aria-pressed', x===b));
@@ -1599,7 +1682,9 @@ $('fQ').addEventListener('input', e => {
 });
 document.querySelectorAll('.limpar').forEach(b => b.addEventListener('click', () => {
   const alvo = b.dataset.alvo;
-  if(alvo==='fCid'){ st.mun = -1; setCidade(-1); }
+  /* o x do campo apaga o que esta digitado; as cidades escolhidas saem pelas etiquetas */
+  if(alvo==='fCid'){ $('fCid').value = ''; $('cCid').classList.remove('tem');
+                     if(st.mun >= 0){ st.mun = -1; atualiza(); } }
   else if(alvo==='fEsp') setEsp(-1);
   else { $('fQ').value=''; st.q=''; $('cQ').classList.remove('tem'); atualiza(); }
 }));
@@ -1615,7 +1700,9 @@ $('bAvancado').addEventListener('click', e => {
 const GEO = DADOS.geo || 0;
 
 function escopoGeral(){
-  if(st.cid >= 0) return {uf: CID[st.cid][0], rot: UF[CID[st.cid][0]]};
+  /* cidades de um estado so: aquele estado; de mais de um, o Brasil */
+  const ufs = [...new Set(st.cids.map(c => CID[c][0]))];
+  if(ufs.length === 1) return {uf: ufs[0], rot: UF[ufs[0]]};
   return {uf: -1, rot: 'Brasil'};
 }
 
@@ -1741,11 +1828,11 @@ function pintaGeral(){
 const parTroca = {de: NP - 1, para: 0};
 
 function comparaPlanos(a, b){
-  const f = faixa(), mA = MASCARA[a], mB = MASCARA[b];
+  const mA = MASCARA[a], mB = MASCARA[b];
   const perdidos = [], soB = [];
   let temA = 0, temB = 0, mantem = 0;
   const cidA = new Set(), cidB = new Set();
-  for(let i=f[0];i<f[1];i++){
+  for(const f of faixas()) for(let i=f[0];i<f[1];i++){
     const p = PR[i];
     let m = 0;
     for(let k=1;k<p[5].length;k+=2) m |= p[5][k];
@@ -1763,7 +1850,7 @@ function comparaPlanos(a, b){
 }
 
 function pintaEntre(){
-  const onde = st.cid >= 0 ? CID[st.cid][1] + '/' + UF[CID[st.cid][0]] : 'todo o Brasil';
+  const onde = ondeTexto('todo o Brasil');
   const sel = (id, v) => '<select id="' + id + '">' + PLANOS.map((n,i) =>
         '<option value="' + i + '"' + (i===v ? ' selected' : '') + '>' + esc(n) + '</option>'
       ).join('') + '</select>';
@@ -1903,11 +1990,11 @@ $('bZerar').addEventListener('click', () => {
   guarda('produtos', ''); guarda('modo', 'qualquer');
   $('fQ').value = ''; $('cQ').classList.remove('tem');
   Array.from($('fTipo').children).forEach(x => x.setAttribute('aria-pressed', x.dataset.t === '1'));
-  setEsp(-1); setCidade(-1);
+  setEsp(-1); st.mun = -1; juntaCidade(-1); tiraCidade(-1);
 });
 $('lista').addEventListener('click', e => {
   const b = e.target.closest('[data-cid]');
-  if(b){ setCidade(+b.dataset.cid); window.scrollTo({top:0, behavior:'smooth'}); return; }
+  if(b){ juntaCidade(+b.dataset.cid); window.scrollTo({top:0, behavior:'smooth'}); return; }
   const m = e.target.closest('button.abrir');
   if(m){ m.parentNode.classList.remove('corta'); m.remove(); }
 });
@@ -1924,9 +2011,12 @@ const pl = lembra('produtos');
 if(pl) for(const i of pl.split(',')) if(PLANOS[+i]) st.planos.add(+i);
 const md = lembra('modo');
 if(md === 'todos' || md === 'qualquer') st.modo = md;
-const cd = lembra('cidade');
-if(cd !== null && CID[+cd]) setCidade(+cd); else { bairros(); atualiza(); }
-$('fCid').focus();
+/* as cidades da ultima visita (antes era uma so, em "cidade") */
+st.cids = [...new Set((lembra('cidades') || lembra('cidade') || '').split('|')
+  .filter(x => x !== '' && CID[+x] && cQt[+x]).map(Number))];
+pintaCidades(); bairros(); atualiza();
+/* sem cidade, o cursor ja fica no campo; com cidades, a lista de sugestoes nao cobre as etiquetas */
+if(!st.cids.length) $('fCid').focus();
 </script>
 </body>
 </html>
